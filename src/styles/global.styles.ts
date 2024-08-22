@@ -1,6 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const Global = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
   html#page {
     font-size: 6.25%; //16px
   }
@@ -57,6 +63,10 @@ export const Global = createGlobalStyle`
       &:hover {
         cursor: not-allowed;
       }
+    }
+
+    &:hover {
+      filter: brightness(0.8);
     }
   }
 
