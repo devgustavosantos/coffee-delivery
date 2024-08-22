@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "prettier": "prettier --write .",
     "eslint": "eslint --fix",
+    "stylelint": "stylelint './src/**/*.styles.ts' --fix",
     "lint-staged": "lint-staged --allow-empty",
     "prepare": "husky"
   },
