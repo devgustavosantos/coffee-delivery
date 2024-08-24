@@ -1,10 +1,11 @@
 import logoWithHorizontalText from '@/assets/logo/with-horizontal-text.svg';
 
-import { links } from './data';
+import { links, menus } from './HeaderMobile.data';
+import { useHeaderMobile } from './HeaderMobile.hook';
 import * as S from './HeaderMobile.styles';
 
 export function HeaderMobile() {
-  const isOpen = true;
+  const { isOpen, handleMenu } = useHeaderMobile();
 
   return (
     <S.HeaderMobileContainer>
@@ -13,28 +14,27 @@ export function HeaderMobile() {
           src={logoWithHorizontalText}
           alt=""
         />
-        <S.MenuButton>
-          {isOpen ? (
-            <S.XCustom weight="bold" />
-          ) : (
-            <S.ListCustom weight="bold" />
-          )}
+        <S.MenuButton onClick={handleMenu}>
+          {menus.map((Menu) => (
+            <Menu
+              weight="bold"
+              isOpen={isOpen}
+            />
+          ))}
         </S.MenuButton>
       </S.Top>
-      {isOpen && (
-        <S.Navigation>
-          <S.UnorderedList>
-            {links.map(({ name, url, icon: Icon }) => (
-              <li key={name}>
-                <S.ListLink href={url}>
-                  <Icon weight="fill" />
-                  <S.ListText>{name}</S.ListText>
-                </S.ListLink>
-              </li>
-            ))}
-          </S.UnorderedList>
-        </S.Navigation>
-      )}
+      <S.Navigation isOpen={isOpen}>
+        <S.UnorderedList>
+          {links.map(({ name, url, icon: Icon }) => (
+            <li key={name}>
+              <S.ListLink href={url}>
+                <Icon weight="fill" />
+                <S.ListText>{name}</S.ListText>
+              </S.ListLink>
+            </li>
+          ))}
+        </S.UnorderedList>
+      </S.Navigation>
     </S.HeaderMobileContainer>
   );
 }

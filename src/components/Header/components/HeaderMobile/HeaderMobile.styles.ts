@@ -9,6 +9,8 @@ import {
   X,
 } from '@phosphor-icons/react';
 
+import { HeaderMobileProps } from './HeaderMobile.types';
+
 const HeaderMobileContainer = styled.div`
   display: none;
 
@@ -33,6 +35,7 @@ const MenuButton = styled.button`
   height: 28rem;
   font-size: 28rem;
   color: ${({ theme }) => theme.SECONDARY_900};
+  position: relative;
 `;
 
 const iconStyles = css`
@@ -40,16 +43,42 @@ const iconStyles = css`
   font-size: inherit;
 `;
 
-const ListCustom = styled(List)`
-  ${iconStyles}
+const iconsMenuButton = css`
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  transition: opacity 0.4s;
 `;
 
-const XCustom = styled(X)`
+const ListCustom = styled(List)<HeaderMobileProps>`
   ${iconStyles}
+  ${iconsMenuButton}
+  opacity: ${({ isOpen }) => (isOpen ? 0 : 1)};
 `;
 
-const Navigation = styled.nav`
+const XCustom = styled(X)<HeaderMobileProps>`
+  ${iconStyles}
+  ${iconsMenuButton}
+  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+`;
+
+const navigationOpen = css`
+  height: auto;
   margin-top: 20rem;
+  opacity: 1;
+`;
+
+const navigationClosed = css`
+  height: 0;
+  opacity: 0;
+  margin-top: 0;
+  overflow: hidden;
+`;
+
+const Navigation = styled.nav<HeaderMobileProps>`
+  ${({ isOpen }) => (isOpen ? navigationOpen : navigationClosed)};
+  transition: opacity 0.8s;
 `;
 
 const UnorderedList = styled.ul`
