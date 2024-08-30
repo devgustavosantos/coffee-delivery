@@ -12,7 +12,7 @@ export function Home() {
       <main>
         <S.Section>
           <Wrapper stylization={S.bannerWrapperStylization}>
-            <div>
+            <S.Contents>
               <S.Title>
                 Encontre o café perfeito para qualquer hora do dia
               </S.Title>
@@ -20,22 +20,22 @@ export function Home() {
                 Com o Coffee Delivery você recebe seu café onde estiver, a
                 qualquer hora
               </S.Description>
-              <S.BenefitsContainer>
-                {benefits.map((benefit) => (
-                  <S.Benefit key={benefit.content}>
-                    <Badge
-                      icon={benefit.icon}
-                      color={benefit.color}
-                    />
-                    <p>{benefit.content}</p>
-                  </S.Benefit>
-                ))}
-              </S.BenefitsContainer>
-            </div>
+            </S.Contents>
             <S.Banner
               src={homeBanner}
               alt="Copo de café"
             />
+            <S.BenefitsContainer>
+              {benefits.map((benefit) => (
+                <S.Benefit key={benefit.content}>
+                  <Badge
+                    icon={benefit.icon}
+                    color={benefit.color}
+                  />
+                  <p>{benefit.content}</p>
+                </S.Benefit>
+              ))}
+            </S.BenefitsContainer>
           </Wrapper>
         </S.Section>
       </main>
