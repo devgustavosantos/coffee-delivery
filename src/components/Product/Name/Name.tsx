@@ -1,6 +1,6 @@
 import * as S from './Name.styles';
 import { NameProps } from './Name.types';
 
-export function Name({ content }: NameProps) {
-  return <S.NameContainer>{content}</S.NameContainer>;
+export function Name({ content, emphasized }: NameProps) {
+  return <S.NameContainer emphasized={emphasized}>{content}</S.NameContainer>;
 }

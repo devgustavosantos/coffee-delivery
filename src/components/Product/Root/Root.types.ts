@@ -1,5 +1,11 @@
 import { ReactNode } from 'react';
 
-export interface RootProps {
+interface RootContainerProps {
+  inCardFormat: boolean;
+}
+
+interface RootProps extends RootContainerProps {
   children: ReactNode;
 }
+
+export type { RootContainerProps, RootProps };
