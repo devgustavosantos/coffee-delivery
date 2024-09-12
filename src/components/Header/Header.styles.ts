@@ -9,6 +9,7 @@ const HeaderContainer = styled.header<HeaderContainerProps>`
   position: sticky;
   top: 0;
   left: 0;
+  z-index: 9;
   background: ${({ theme }) => theme.BASE_200};
   box-shadow: 0 0 20px -10px ${({ theme, isSticked }) => (isSticked ? theme.BASE_700 : 'transparent')};
   transition: box-shadow 0.4s;
