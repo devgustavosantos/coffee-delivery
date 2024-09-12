@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { COLORS } from '@/styles';
+import { BREAKPOINTS, COLORS } from '@/styles';
 
 import { RootContainerProps } from './Root.types';
 
@@ -10,6 +10,11 @@ const rootCardStyles = /*css*/ `
   max-width: 256rem;
   border-radius: 6rem 36rem 6rem 36rem;
   line-height: 130%;
+
+  @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
+    scale: 1.2;
+    max-width: 80%;
+  }
 `;
 
 const RootContainer = styled.article<RootContainerProps>`
