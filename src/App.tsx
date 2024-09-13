@@ -1,5 +1,14 @@
-function App() {
-  return <>Hello World!</>;
-}
+import { ThemeProvider } from 'styled-components';
 
-export default App;
+import { Router } from './Router';
+import { COLORS, Global, Reset } from './styles';
+
+export function App() {
+  return (
+    <ThemeProvider theme={COLORS}>
+      <Reset />
+      <Global />
+      <Router />
+    </ThemeProvider>
+  );
+}
