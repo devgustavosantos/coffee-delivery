@@ -13,7 +13,8 @@ const rootCardStyles = /*css*/ `
 
   @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
     scale: 1.2;
-    max-width: 80%;
+    max-width: initial;
+    width: 80%;
   }
 `;
 
