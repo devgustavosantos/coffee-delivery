@@ -9,6 +9,7 @@ import {
   X,
 } from '@phosphor-icons/react';
 
+import { pseudoElementWithShadow } from '../../Header.styles';
 import { HeaderMobileProps } from './HeaderMobile.types';
 
 const HeaderMobileContainer = styled.div`
@@ -67,6 +68,14 @@ const navigationOpen = css`
   height: auto;
   margin-top: 20rem;
   opacity: 1;
+
+  &::after {
+    ${pseudoElementWithShadow}
+    height: 10rem;
+    background: ${({ theme }) => theme.BASE_200};
+    position: absolute;
+    bottom: 0rem;
+  }
 `;
 
 const navigationClosed = css`
