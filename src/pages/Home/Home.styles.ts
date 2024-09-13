@@ -2,7 +2,11 @@ import { css, styled } from 'styled-components';
 
 import { BREAKPOINTS } from '@/styles';
 
-const Section = styled.section`
+const HomeContainer = styled.main`
+  padding-bottom: 80rem;
+`;
+
+const Top = styled.section`
   background: #ffffff url('/src/assets/home/background.png') no-repeat center;
   background-size: cover;
 
@@ -156,8 +160,33 @@ const Banner = styled.img`
   }
 `;
 
+const Subtitle = styled.h2`
+  font-size: 32rem;
+  font-weight: 900;
+  margin: 32rem auto 54rem;
+
+  @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
+    margin-bottom: 68rem;
+  }
+`;
+
+const ProductsContainer = styled.section`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 256rem);
+  justify-content: space-evenly;
+  gap: 32rem;
+
+  @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 108rem;
+  }
+`;
+
 export {
-  Section,
+  HomeContainer,
+  Top,
   bannerWrapperStylization,
   Contents,
   Title,
@@ -165,4 +194,6 @@ export {
   BenefitsContainer,
   Benefit,
   Banner,
+  Subtitle,
+  ProductsContainer,
 };
