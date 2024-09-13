@@ -17,4 +17,4 @@ export const COLORS = {
   BASE_300: '#F3F2F2',
   BASE_200: '#FAFAFA',
   BASE_100: '#FFFFFF',
-};
+} as const;
