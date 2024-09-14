@@ -1,4 +1,5 @@
-import { Wrapper } from '../Wrapper';
+import { Wrapper } from '@/styles';
+
 import { HeaderDesktop } from './components/HeaderDesktop';
 import { HeaderMobile } from './components/HeaderMobile';
 import * as S from './Header.styles';

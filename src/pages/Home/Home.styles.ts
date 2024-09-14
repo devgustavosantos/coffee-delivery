@@ -1,6 +1,6 @@
-import { css, styled } from 'styled-components';
+import { styled } from 'styled-components';
 
-import { BREAKPOINTS } from '@/styles';
+import { BREAKPOINTS, Wrapper } from '@/styles';
 
 const HomeContainer = styled.main`
   padding-bottom: 80rem;
@@ -46,7 +46,7 @@ const Top = styled.section`
   }
 `;
 
-const bannerWrapperStylization = css`
+const BannerWrapper = styled(Wrapper)`
   display: grid;
   grid-template-areas:
     'A B'
@@ -187,7 +187,7 @@ const ProductsContainer = styled.section`
 export {
   HomeContainer,
   Top,
-  bannerWrapperStylization,
+  BannerWrapper,
   Contents,
   Title,
   Description,

@@ -1,5 +1,6 @@
 import homeBanner from '@/assets/home/banner.png';
-import { Wrapper, Badge, Product } from '@/components';
+import { Badge, Product } from '@/components';
+import { Wrapper } from '@/styles';
 
 import { benefits } from './Home.data';
 import { useHome } from './Home.hook';
@@ -11,7 +12,7 @@ export function Home() {
   return (
     <S.HomeContainer>
       <S.Top>
-        <Wrapper stylization={S.bannerWrapperStylization}>
+        <S.BannerWrapper>
           <S.Contents>
             <S.Title>
               Encontre o café perfeito para qualquer hora do dia
@@ -36,7 +37,7 @@ export function Home() {
               </S.Benefit>
             ))}
           </S.BenefitsContainer>
-        </Wrapper>
+        </S.BannerWrapper>
       </S.Top>
       <Wrapper>
         <S.Subtitle>Nossos cafés</S.Subtitle>

@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
+import { styled } from 'styled-components';
 
-import { BREAKPOINTS } from '@/styles';
+import { BREAKPOINTS, Wrapper } from '@/styles';
 
 const FooterContainer = styled.footer`
   border-top: 1rem solid ${({ theme }) => theme.BASE_400};
@@ -11,7 +11,7 @@ const FooterContainer = styled.footer`
   }
 `;
 
-const footerWrapperStyles = css`
+const FooterWrapper = styled(Wrapper)`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,10 +50,4 @@ const Copyright = styled.p`
   }
 `;
 
-export {
-  FooterContainer,
-  footerWrapperStyles,
-  DesktopLogo,
-  Copyright,
-  MobileLogo,
-};
+export { FooterContainer, FooterWrapper, DesktopLogo, Copyright, MobileLogo };
