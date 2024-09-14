@@ -1,4 +1,4 @@
-import logoWithHorizontalText from '@/assets/logo/with-horizontal-text.svg';
+import { logoHorizontal } from '@/assets';
 
 import { links, menus } from './HeaderMobile.data';
 import { useHeaderMobile } from './HeaderMobile.hook';
@@ -11,7 +11,7 @@ export function HeaderMobile() {
     <S.HeaderMobileContainer>
       <S.Top>
         <S.Logo
-          src={logoWithHorizontalText}
+          src={logoHorizontal}
           alt=""
         />
         <S.MenuButton onClick={handleMenu}>

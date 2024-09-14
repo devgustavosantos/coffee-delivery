@@ -1,4 +1,4 @@
-import homeBanner from '@/assets/home/banner.png';
+import { homeBanner } from '@/assets';
 import { Badge, Product } from '@/components';
 import { Wrapper } from '@/styles';
 

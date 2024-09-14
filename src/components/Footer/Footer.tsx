@@ -1,5 +1,5 @@
-import deskTopLogo from '@/assets/logo/large-with-gray-color.svg';
-import mobileLogo from '@/assets/logo/with-horizontal-text-and-gray-color.svg';
+import { logoLargeGray } from '@/assets';
+import { logoHorizontalGray } from '@/assets';
 
 import * as S from './Footer.styles';
 
@@ -8,11 +8,11 @@ export function Footer() {
     <S.FooterContainer>
       <S.FooterWrapper>
         <S.DesktopLogo
-          src={deskTopLogo}
+          src={logoLargeGray}
           alt=""
         />
         <S.MobileLogo
-          src={mobileLogo}
+          src={logoHorizontalGray}
           alt=""
         />
         <S.Copyright>© 2024 - Todos os direitos reservados.</S.Copyright>

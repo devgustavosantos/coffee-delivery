@@ -1,4 +1,4 @@
-import largeLogo from '@/assets/logo/large.svg';
+import { logoLarge } from '@/assets';
 
 import * as S from './HeaderDesktop.styles';
 
@@ -7,7 +7,7 @@ export function HeaderDesktop() {
     <S.HeaderDesktopContainer>
       <a href="/">
         <S.Logo
-          src={largeLogo}
+          src={logoLarge}
           alt=""
         />
       </a>
