@@ -4,6 +4,7 @@ import { BREAKPOINTS, Wrapper } from '@/styles';
 
 const HomeContainer = styled.main`
   padding-bottom: 80rem;
+  flex-grow: 1;
 `;
 
 const Top = styled.section`

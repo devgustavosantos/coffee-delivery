@@ -2,12 +2,14 @@ import { Outlet } from 'react-router-dom';
 
 import { Header, Footer } from '@/components';
 
-export function DefaultLayout() {
+import * as S from './Default.styles';
+
+export function Default() {
   return (
-    <>
+    <S.DefaultContainer>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </S.DefaultContainer>
   );
 }

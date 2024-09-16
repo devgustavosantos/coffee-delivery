@@ -24,7 +24,6 @@ export const Global = createGlobalStyle`
 
   body#body {
     width: 100%;
-    min-height: 100vh;
     background-color: ${({ theme }) => theme.BASE_200};
   }
 

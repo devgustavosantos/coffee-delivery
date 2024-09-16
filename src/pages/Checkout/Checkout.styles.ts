@@ -4,6 +4,7 @@ import { Wrapper } from '@/styles';
 
 const CheckoutContainer = styled.main`
   padding-block: 40rem;
+  flex-grow: 1;
 `;
 
 const CheckoutWrapper = styled(Wrapper)`

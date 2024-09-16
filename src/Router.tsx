@@ -1,6 +1,6 @@
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
-import { DefaultLayout } from './layouts';
+import { Default } from './layouts';
 import { Home } from './pages';
 
 export function Router() {
@@ -9,7 +9,7 @@ export function Router() {
       <Routes>
         <Route
           path="/"
-          element={<DefaultLayout />}
+          element={<Default />}
         >
           <Route
             path="/"
