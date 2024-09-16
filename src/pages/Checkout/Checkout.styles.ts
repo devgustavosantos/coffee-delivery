@@ -72,6 +72,11 @@ const SectionDescription = styled.p`
   color: ${({ theme }) => theme.BASE_800};
 `;
 
+const iconSectionStyles = css`
+  font-size: 22rem;
+  grid-area: A;
+`;
+
 export {
   CheckoutContainer,
   CheckoutWrapper,
@@ -85,4 +90,5 @@ export {
   SectionTop,
   SectionTitle,
   SectionDescription,
+  iconSectionStyles,
 };

@@ -2,6 +2,8 @@ import { styled } from 'styled-components';
 
 import { MapPinLine } from '@phosphor-icons/react';
 
+import { iconSectionStyles } from '../Checkout.styles';
+
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -10,9 +12,8 @@ const FormContainer = styled.div`
 `;
 
 const MapPinLineCustom = styled(MapPinLine)`
+  ${iconSectionStyles}
   color: ${({ theme }) => theme.PRIMARY_900};
-  font-size: 22rem;
-  grid-area: A;
 `;
 
 const Form = styled.form`

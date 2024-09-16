@@ -49,14 +49,16 @@ export const Global = createGlobalStyle`
   }
 
   button,
-  a {
+  a,
+  label {
     cursor: pointer;
     transition: filter 0.2s;
   }
 
   button,
   a,
-  input {
+  input,
+  label {
     &:disabled {
       filter: brightness(0.8);
 

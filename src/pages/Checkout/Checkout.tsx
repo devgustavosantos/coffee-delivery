@@ -1,5 +1,6 @@
 import * as S from './Checkout.styles';
 import { Form } from './Form';
+import { Payment } from './Payment';
 
 export function Checkout() {
   return (
@@ -11,7 +12,9 @@ export function Checkout() {
             <S.DefaultSection>
               <Form />
             </S.DefaultSection>
-            <S.DefaultSection>Payment</S.DefaultSection>
+            <S.DefaultSection>
+              <Payment />
+            </S.DefaultSection>
           </S.SectionContainer>
         </S.LeftSide>
         <S.RightSide>
