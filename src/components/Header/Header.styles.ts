@@ -15,10 +15,6 @@ const HeaderContainer = styled.header`
   --base-top-on-desktop: 97rem;
   --base-top-on-mobile: 54rem;
 
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 9;
   background-color: ${({ theme }) => theme.BASE_200};
 
   &::before {
