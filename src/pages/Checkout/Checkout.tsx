@@ -1,6 +1,7 @@
 import * as S from './Checkout.styles';
 import { Form } from './Form';
 import { Payment } from './Payment';
+import { Summary } from './Summary';
 
 export function Checkout() {
   return (
@@ -19,7 +20,9 @@ export function Checkout() {
         </S.LeftSide>
         <S.RightSide>
           <S.SecondaryTitle>Cafés Selecionados</S.SecondaryTitle>
-          <S.CoffeesSection>Coffees</S.CoffeesSection>
+          <S.ProductsSection>
+            <Summary />
+          </S.ProductsSection>
         </S.RightSide>
       </S.CheckoutWrapper>
     </S.CheckoutContainer>

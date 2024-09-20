@@ -48,7 +48,7 @@ const SecondaryTitle = styled.h2`
   ${titleStyles}
 `;
 
-const CoffeesSection = styled(DefaultSection)`
+const ProductsSection = styled(DefaultSection)`
   border-radius: 6rem 44rem;
 `;
 
@@ -87,7 +87,7 @@ export {
   PrimaryTitle,
   DefaultSection,
   SecondaryTitle,
-  CoffeesSection,
+  ProductsSection,
   SectionTop,
   SectionTitle,
   SectionDescription,
