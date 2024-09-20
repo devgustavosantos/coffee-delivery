@@ -5,6 +5,7 @@ import { Image } from './Image';
 import { Name } from './Name';
 import { Price } from './Price';
 import { QuantitySelector } from './QuantitySelector';
+import { RemoveFromCart } from './RemoveFromCart';
 import { Root } from './Root';
 import { Tag } from './Tag';
 import { Tags } from './Tags';
@@ -20,4 +21,5 @@ export const Product = {
   Price,
   QuantitySelector,
   AddToCart,
+  RemoveFromCart,
 };
