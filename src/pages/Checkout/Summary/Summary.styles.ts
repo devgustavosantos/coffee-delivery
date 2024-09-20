@@ -7,6 +7,7 @@ import {
   QuantitySelectorContainer,
   CurrentQuantity,
 } from '@/components/Product/QuantitySelector/QuantitySelector.styles';
+import { BREAKPOINTS } from '@/styles';
 
 const SummaryContainer = styled.div`
   display: flex;
@@ -85,6 +86,34 @@ const ProductWrapper = styled.div`
   /* stylelint-disable-next-line */
   ${CurrentQuantity} {
     transform: translateY(1rem);
+  }
+
+  @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: clamp(120rem, 35vw - 10rem, 200rem) repeat(2, 1fr);
+    grid-template-areas:
+      'A A'
+      'B C'
+      'D E';
+
+    /* stylelint-disable-next-line */
+    ${ImageContainer} {
+      width: initial;
+      max-width: initial;
+      height: 100%;
+      display: block;
+      margin: auto;
+    }
+
+    /* stylelint-disable-next-line */
+    ${PriceContainer} {
+      align-items: flex-start;
+    }
+
+    /* stylelint-disable-next-line */
+    ${QuantitySelectorContainer} {
+      padding: 12rem;
+    }
   }
 `;
 

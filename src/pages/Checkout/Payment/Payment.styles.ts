@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 
+import { BREAKPOINTS } from '@/styles';
 import { CurrencyDollar, Icon } from '@phosphor-icons/react';
 
 import { iconSectionStyles } from '../Checkout.styles';
@@ -8,6 +9,10 @@ const PaymentContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32rem;
+
+  @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
+    gap: clamp(16rem, 1vw - 10rem, 32rem);
+  }
 `;
 
 const CurrencyDollarCustom = styled(CurrencyDollar)`
@@ -19,6 +24,11 @@ const MethodsContainer = styled.fieldset`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12rem;
+
+  @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const PaymentInput = styled.input`
