@@ -8,11 +8,9 @@ export function Price({ value, emphasized }: PriceProps) {
   return (
     <S.PriceContainer emphasized={emphasized}>
       R$
-      {emphasized ? (
-        <S.EmphasizedPrice>{valueFormatted}</S.EmphasizedPrice>
-      ) : (
-        <S.SimplePrice>{valueFormatted}</S.SimplePrice>
-      )}
+      <S.ValueContainer emphasized={emphasized}>
+        {valueFormatted}
+      </S.ValueContainer>
     </S.PriceContainer>
   );
 }

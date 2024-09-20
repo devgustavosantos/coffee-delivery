@@ -4,21 +4,37 @@ import { PriceContainerProps } from './Price.types';
 
 const containerEmphasizedStyles = css`
   font-size: 14rem;
+  font-weight: 400;
+`;
+
+const containerSimpleStyles = css`
+
+  font-weight: 800;
+  font-size: 16rem;
 `;
 
 const PriceContainer = styled.div<PriceContainerProps>`
-  ${({ emphasized }) => emphasized && containerEmphasizedStyles};
+  ${({ emphasized }) =>
+    emphasized ? containerEmphasizedStyles : containerSimpleStyles};
   display: flex;
   gap: 4rem;
   align-items: flex-end;
 `;
 
-const EmphasizedPrice = styled.strong`
+const emphasizedValueContainer = css`
   font-family: 'Baloo 2', sans-serif;
   font-size: 24rem;
   font-weight: 900;
 `;
 
-const SimplePrice = styled.span``;
+const simpleValueContainer = css`
+  font-weight: inherit;
+  font-size: inherit;
+`;
 
-export { PriceContainer, EmphasizedPrice, SimplePrice };
+const ValueContainer = styled.strong<PriceContainerProps>`
+  ${({ emphasized }) =>
+    emphasized ? emphasizedValueContainer : simpleValueContainer};
+`;
+
+export { PriceContainer, ValueContainer };
