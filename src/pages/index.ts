@@ -1,3 +1,4 @@
+import { Checkout } from './Checkout';
 import { Home } from './Home';
 
-export { Home };
+export { Home, Checkout };
