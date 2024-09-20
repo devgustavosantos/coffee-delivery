@@ -40,6 +40,8 @@ export function Form() {
                 placeholder={name}
               />
             )}
+
+            {!isRequired && <S.Optional>Opcional</S.Optional>}
           </S.InputContainer>
         ))}
       </S.Form>

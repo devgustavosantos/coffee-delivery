@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 
 import { BREAKPOINTS } from '@/styles';
 import { MapPinLine } from '@phosphor-icons/react';
@@ -42,14 +42,23 @@ const Form = styled.form`
   }
 `;
 
-const Input = styled.input`
+const entryStyles = css`
   padding: 12rem;
+
+  @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
+    padding: clamp(8rem, 4vw - 10rem, 12rem);
+    font-size: clamp(14rem, 7vw - 10rem, 16rem);
+  }
+`;
+
+const Input = styled.input`
   border: none;
   background-color: transparent;
   color: ${({ theme }) => theme.BASE_800};
   flex-grow: 1;
   appearance: none;
   width: 100%;
+  ${entryStyles}
 
   &::placeholder {
     color: ${({ theme }) => theme.BASE_700};
@@ -59,11 +68,6 @@ const Input = styled.input`
   &::-webkit-inner-spin-button {
     appearance: none;
     margin: 0;
-  }
-
-  @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
-    padding: clamp(8rem, 4vw - 10rem, 12rem);
-    font-size: clamp(14rem, 7vw - 10rem, 16rem);
   }
 `;
 
@@ -83,6 +87,7 @@ const InputContainer = styled.div`
   border: 1rem solid ${({ theme }) => theme.BASE_500};
   display: flex;
   justify-content: stretch;
+  align-items: center;
   ${inputContainerAreasStyles};
 
   /* stylelint-disable-next-line */
@@ -95,19 +100,33 @@ const Select = styled.select`
   border: none;
   background-color: transparent;
   appearance: none;
-  padding: 12rem;
   cursor: pointer;
   flex-grow: 1;
   color: ${({ theme }) => theme.BASE_700};
+  ${entryStyles}
 
   &:valid {
     color: ${({ theme }) => theme.BASE_800};
   }
+`;
+
+const Optional = styled.span`
+  ${entryStyles}
+  font-size: 12rem;
+  font-style: italic;
+  color: ${({ theme }) => theme.BASE_700};
 
   @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
-    padding: 8rem;
     font-size: 12rem;
   }
 `;
 
-export { FormContainer, MapPinLineCustom, Form, InputContainer, Input, Select };
+export {
+  FormContainer,
+  MapPinLineCustom,
+  Form,
+  InputContainer,
+  Input,
+  Select,
+  Optional,
+};
