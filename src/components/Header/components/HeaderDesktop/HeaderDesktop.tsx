@@ -5,12 +5,12 @@ import * as S from './HeaderDesktop.styles';
 export function HeaderDesktop() {
   return (
     <S.HeaderDesktopContainer>
-      <S.Link href="/">
+      <S.LinkCustom to="/">
         <S.Logo
           src={logoLarge}
           alt=""
         />
-      </S.Link>
+      </S.LinkCustom>
       <S.List>
         <S.LocationItem>
           <S.LocationContainer>
@@ -18,7 +18,7 @@ export function HeaderDesktop() {
           </S.LocationContainer>
         </S.LocationItem>
         <S.CartItem>
-          <S.CartLink href="/">
+          <S.CartLink to="/checkout">
             <S.ShoppingCartCustom weight="fill" />
           </S.CartLink>
         </S.CartItem>

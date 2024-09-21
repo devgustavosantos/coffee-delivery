@@ -27,7 +27,7 @@ export function HeaderMobile() {
         <S.UnorderedList>
           {links.map(({ name, url, icon: Icon }) => (
             <li key={name}>
-              <S.ListLink href={url}>
+              <S.ListLink to={url}>
                 <Icon weight="fill" />
                 <S.ListText>{name}</S.ListText>
               </S.ListLink>

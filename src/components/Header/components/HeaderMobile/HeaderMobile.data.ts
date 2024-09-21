@@ -8,8 +8,8 @@ import {
 
 const links = [
   { name: 'Início', url: '/', icon: HouseLineCustom },
-  { name: 'Endereço', url: '/', icon: MapPinCustom },
-  { name: 'Carrinho', url: '/', icon: ShoppingCartCustom },
+  { name: 'Endereço', url: '/checkout', icon: MapPinCustom },
+  { name: 'Carrinho', url: '/checkout', icon: ShoppingCartCustom },
 ];
 
 const menus = [XCustom, ListCustom];

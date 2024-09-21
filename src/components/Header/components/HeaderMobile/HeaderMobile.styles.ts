@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { styled, css } from 'styled-components';
 
 import { BREAKPOINTS } from '@/styles';
@@ -97,7 +98,7 @@ const UnorderedList = styled.ul`
   gap: 12rem;
 `;
 
-const ListLink = styled.a`
+const ListLink = styled(Link)`
   display: flex;
   gap: 8rem;
   align-items: center;

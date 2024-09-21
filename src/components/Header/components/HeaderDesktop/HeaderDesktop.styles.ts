@@ -1,8 +1,8 @@
-// eslint-disable-next-line import-helpers/order-imports
-import { MapPin, ShoppingCart } from '@phosphor-icons/react';
+import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import { BREAKPOINTS } from '@/styles';
+import { MapPin, ShoppingCart } from '@phosphor-icons/react';
 
 const HeaderDesktopContainer = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ const HeaderDesktopContainer = styled.div`
   }
 `;
 
-const Link = styled.a`
+const LinkCustom = styled(Link)`
   max-width: 85rem;
   width: 100%;
   aspect-ratio: 85 / 40;
@@ -31,8 +31,6 @@ const List = styled.ul`
 `;
 
 const ListItem = styled.li`
-  padding: 8rem;
-  height: 38rem;
   border-radius: 6rem;
   display: flex;
   align-items: center;
@@ -46,6 +44,7 @@ const LocationContainer = styled.span`
   display: flex;
   align-items: center;
   gap: 4rem;
+  padding: 8rem;
   color: ${({ theme }) => theme.SECONDARY_900};
 `;
 
@@ -58,7 +57,8 @@ const CartItem = styled(ListItem)`
   background-color: ${({ theme }) => theme.PRIMARY_700};
 `;
 
-const CartLink = styled.a`
+const CartLink = styled(Link)`
+  padding: 8rem;
   display: flex;
   align-items: center;
 `;
@@ -70,7 +70,7 @@ const ShoppingCartCustom = styled(ShoppingCart)`
 
 export {
   HeaderDesktopContainer,
-  Link,
+  LinkCustom,
   Logo,
   List,
   LocationItem,
