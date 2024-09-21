@@ -152,12 +152,11 @@ const Benefit = styled.article`
 
 const Banner = styled.img`
   grid-area: B;
-  aspect-ratio: 48 / 36;
   width: clamp(360rem, 35vw, 476rem);
+  aspect-ratio: 48 / 36;
 
   @media only screen and (max-width: ${BREAKPOINTS.LARGE}) {
-    max-width: 476rem;
-    width: 100%;
+    width: min(100%, 476rem);
   }
 `;
 

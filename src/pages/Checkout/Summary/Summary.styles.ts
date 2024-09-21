@@ -60,7 +60,8 @@ const ProductWrapper = styled.div`
 
   /* stylelint-disable-next-line */
   ${ImageContainer} {
-    width: 64rem;
+    max-width: 64rem;
+    width: 100%;
     aspect-ratio: 1/1;
   }
 

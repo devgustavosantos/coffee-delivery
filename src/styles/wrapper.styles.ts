@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { BREAKPOINTS } from './breakpoints';
 
 export const Wrapper = styled.div`
-  max-width: 1152px;
+  max-width: 1152rem;
   padding-inline: 16rem;
   margin: auto;
 

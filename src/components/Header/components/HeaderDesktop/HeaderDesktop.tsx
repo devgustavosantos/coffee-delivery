@@ -5,12 +5,12 @@ import * as S from './HeaderDesktop.styles';
 export function HeaderDesktop() {
   return (
     <S.HeaderDesktopContainer>
-      <a href="/">
+      <S.Link href="/">
         <S.Logo
           src={logoLarge}
           alt=""
         />
-      </a>
+      </S.Link>
       <S.List>
         <S.LocationItem>
           <S.LocationContainer>

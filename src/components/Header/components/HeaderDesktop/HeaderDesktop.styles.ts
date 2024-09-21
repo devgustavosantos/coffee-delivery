@@ -14,8 +14,14 @@ const HeaderDesktopContainer = styled.div`
   }
 `;
 
+const Link = styled.a`
+  max-width: 85rem;
+  width: 100%;
+  aspect-ratio: 85 / 40;
+`;
+
 const Logo = styled.img`
-  max-height: 40rem;
+  width: 100%;
 `;
 
 const List = styled.ul`
@@ -64,6 +70,7 @@ const ShoppingCartCustom = styled(ShoppingCart)`
 
 export {
   HeaderDesktopContainer,
+  Link,
   Logo,
   List,
   LocationItem,

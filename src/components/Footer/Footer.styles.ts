@@ -23,9 +23,10 @@ const FooterWrapper = styled(Wrapper)`
 `;
 
 const DesktopLogo = styled.img`
-  width: 85rem;
-  height: 40rem;
   display: block;
+  max-width: 85rem;
+  width: 100%;
+  aspect-ratio: 85 / 40;
 
   @media only screen and (max-width: ${BREAKPOINTS.MEDIUM}) {
     display: none;
@@ -37,8 +38,9 @@ const MobileLogo = styled.img`
 
   @media only screen and (max-width: ${BREAKPOINTS.MEDIUM}) {
     display: block;
-    width: 120rem;
-    height: 32rem;
+    max-width: 120rem;
+    width: 100%;
+    aspect-ratio: 120/32;
   }
 `;
 

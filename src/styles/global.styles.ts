@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
+import { BREAKPOINTS } from './breakpoints';
+
 export const Global = createGlobalStyle`
   * {
     box-sizing: border-box;
@@ -79,5 +81,11 @@ export const Global = createGlobalStyle`
     font-size: inherit;
     color: inherit;
     line-height: inherit;
+  }
+
+  @media only screen and (min-width: ${BREAKPOINTS.EXTRA_LARGE}) {
+    html#page {
+      font-size: max(6.25%, 0.056vw);
+    }
   }
 `;

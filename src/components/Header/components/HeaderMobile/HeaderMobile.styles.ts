@@ -27,8 +27,9 @@ const Top = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 124rem;
-  height: 32rem;
+  max-width: 120rem;
+  width: 100%;
+  aspect-ratio: 120/32;
 `;
 
 const MenuButton = styled.button`
