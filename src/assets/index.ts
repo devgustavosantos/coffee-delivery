@@ -5,6 +5,7 @@ import logoHorizontal from './logo/horizontal.svg';
 import logoLargeGray from './logo/large-gray.svg';
 import logoLarge from './logo/large.svg';
 import logoSmall from './logo/small.svg';
+import deliveryMan from './others/delivery-man.svg';
 
 export {
   homeBackground,
@@ -14,4 +15,5 @@ export {
   logoSmall,
   logoHorizontal,
   logoHorizontalGray,
+  deliveryMan,
 };
