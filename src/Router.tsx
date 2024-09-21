@@ -1,7 +1,7 @@
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import { Default } from './layouts';
-import { Checkout, Home } from './pages';
+import { Checkout, Home, Success } from './pages';
 
 export function Router() {
   return (
@@ -18,6 +18,10 @@ export function Router() {
           <Route
             path="/checkout"
             element={<Checkout />}
+          />
+          <Route
+            path="/success"
+            element={<Success />}
           />
         </Route>
       </Routes>
