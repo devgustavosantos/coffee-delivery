@@ -1,7 +1,6 @@
 import { styled } from 'styled-components';
 
-import { badgeColors } from '@/datas/badge';
-
+import { badgeColors } from './Badge.data';
 import { BadgeContainerProps } from './Badge.types';
 
 export const BadgeContainer = styled.span<BadgeContainerProps>`

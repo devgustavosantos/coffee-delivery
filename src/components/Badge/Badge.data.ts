@@ -1,4 +1,4 @@
-import { BadgeColors } from '@/types/badge';
+import { BadgeColors } from './Badge.types';
 
 export const badgeColors: BadgeColors = {
   PRIMARY: 'PRIMARY_900',

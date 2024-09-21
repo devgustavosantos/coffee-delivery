@@ -1,6 +1,5 @@
-import { Badge as BadgeProps } from '@/types/badge';
-
 import * as S from './Badge.styles';
+import { BadgeProps } from './Badge.types';
 
 export function Badge({ icon: Icon, color }: BadgeProps) {
   return (
