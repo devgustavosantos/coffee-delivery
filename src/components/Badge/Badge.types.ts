@@ -1,5 +1,5 @@
 import { COLORS } from '@/styles';
-import { Icon } from '@phosphor-icons/react';
+import { Icon, IconWeight } from '@phosphor-icons/react';
 
 type ColorsKeys = keyof typeof COLORS;
 
@@ -10,16 +10,24 @@ enum AvailableBadgeColors {
   QUATERNARY = 'QUATERNARY',
 }
 
+type UnitedAvailableBadgeColors = keyof typeof AvailableBadgeColors;
+
 type BadgeColors = {
   [K in AvailableBadgeColors]: ColorsKeys;
 };
 
 interface BadgeContainerProps {
-  color: keyof typeof AvailableBadgeColors;
+  color: UnitedAvailableBadgeColors;
 }
 
 interface BadgeProps extends BadgeContainerProps {
   icon: Icon;
+  weight?: IconWeight;
 }
 
-export type { BadgeProps, BadgeContainerProps, BadgeColors };
+export type {
+  BadgeProps,
+  BadgeContainerProps,
+  BadgeColors,
+  UnitedAvailableBadgeColors,
+};
