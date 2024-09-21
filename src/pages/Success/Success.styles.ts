@@ -1,7 +1,7 @@
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 
 import { BadgeContainer } from '@/components/Badge/Badge.styles';
-import { Wrapper } from '@/styles';
+import { BREAKPOINTS, Wrapper } from '@/styles';
 
 const SuccessContainer = styled.main`
   padding-block: 40rem;
@@ -13,17 +13,35 @@ const SuccessWrapper = styled(Wrapper)`
   justify-content: space-between;
   align-items: flex-end;
   gap: 20rem;
+
+  @media only screen and (max-width: ${BREAKPOINTS.LARGE}) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media only screen and (max-width: ${BREAKPOINTS.MEDIUM}) {
+    align-items: stretch;
+    gap: 32rem;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 32rem;
   font-weight: 900;
   color: ${({ theme }) => theme.PRIMARY_900};
+
+  @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
+    font-size: clamp(24rem, 6vw, 32rem);
+  }
 `;
 
 const Description = styled.p`
   font-size: 20rem;
   margin-top: 4rem;
+
+  @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
+    font-size: clamp(14rem, 4vw, 20rem);
+  }
 `;
 
 const InfosContainer = styled.section`
@@ -54,6 +72,12 @@ const InfosContainer = styled.section`
       ${({ theme }) => theme.SECONDARY_900} 100%
     );
   }
+
+  @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
+    margin-top: clamp(20rem, 8vw - 6rem, 40rem);
+    padding: clamp(20rem, 8vw - 6rem, 40rem);
+    gap: clamp(20rem, 6vw, 32rem);
+  }
 `;
 
 const InfoItem = styled.article`
@@ -69,11 +93,21 @@ const InfoItem = styled.article`
   ${BadgeContainer} {
     grid-area: A;
   }
+
+  @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
+    grid-template-rows: 20rem 1fr;
+  }
+`;
+
+const textStyles = css`
+  @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
+    font-size: clamp(14rem, 3vw, 16rem);
+  }
 `;
 
 const InfoTitle = styled.p`
   grid-area: B;
-  line-height: 100%;
+  ${textStyles}
 `;
 
 const InfoContent = styled.strong`
@@ -83,6 +117,26 @@ const InfoContent = styled.strong`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  ${textStyles}
+
+  @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
+    white-space: wrap;
+  }
+`;
+
+const Image = styled.img`
+  max-width: 492rem;
+  width: 100%;
+  aspect-ratio: 49 / 29;
+
+  @media only screen and (max-width: ${BREAKPOINTS.MEDIUM}) {
+    display: block;
+    margin: auto;
+  }
+
+  @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
+    width: 80%;
+  }
 `;
 
 export {
@@ -94,4 +148,5 @@ export {
   InfoItem,
   InfoTitle,
   InfoContent,
+  Image,
 };

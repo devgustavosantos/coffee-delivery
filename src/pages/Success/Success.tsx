@@ -27,7 +27,7 @@ export function Success() {
             ))}
           </S.InfosContainer>
         </div>
-        <img
+        <S.Image
           src={deliveryMan}
           alt="Imagem de um entregador em cima de uma moto"
         />
