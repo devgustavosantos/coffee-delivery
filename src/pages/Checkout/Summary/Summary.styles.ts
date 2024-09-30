@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 
+import { Product } from '@/components';
 import { ImageContainer } from '@/components/Product/Image/Image.styles';
 import { NameContainer } from '@/components/Product/Name/Name.styles';
 import { PriceContainer } from '@/components/Product/Price/Price.styles';
@@ -38,7 +39,7 @@ const productWrapperAreasStyles = ['A', 'B', 'C', 'D', 'E']
   )
   .join('');
 
-const ProductWrapper = styled.div`
+const ProductRootCustom = styled(Product.Root)`
   display: grid;
   gap: 8rem;
   grid-template-columns: 76rem 72rem 91rem 1fr;
@@ -157,7 +158,7 @@ const ConfirmOrder = styled.button`
 export {
   SummaryContainer,
   ProductsContainer,
-  ProductWrapper,
+  ProductRootCustom,
   InfosContainer,
   InfoRow,
   InfoItem,

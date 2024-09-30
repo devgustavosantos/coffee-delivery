@@ -8,7 +8,7 @@ export function Summary() {
     <S.SummaryContainer>
       <S.ProductsContainer>
         {cartExample.map(({ productId, image, name, value }) => (
-          <S.ProductWrapper key={productId}>
+          <S.ProductRootCustom key={productId}>
             <Product.Image
               src={`products/images/${image}.png`}
               alt=""
@@ -17,7 +17,7 @@ export function Summary() {
             <Product.Price value={value} />
             <Product.QuantitySelector />
             <Product.RemoveFromCart />
-          </S.ProductWrapper>
+          </S.ProductRootCustom>
         ))}
       </S.ProductsContainer>
       <S.InfosContainer>
