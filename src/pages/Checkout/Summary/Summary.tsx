@@ -7,8 +7,11 @@ export function Summary() {
   return (
     <S.SummaryContainer>
       <S.ProductsContainer>
-        {cartExample.map(({ productId, image, name, value }) => (
-          <S.ProductRootCustom key={productId}>
+        {cartExample.map(({ productId, image, name, value, quantity }) => (
+          <S.ProductRootCustom
+            key={productId}
+            quantityAvailable={quantity}
+          >
             <Product.Image
               src={`products/images/${image}.png`}
               alt=""

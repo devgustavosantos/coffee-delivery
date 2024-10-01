@@ -42,37 +42,42 @@ export function Home() {
       <Wrapper>
         <S.Subtitle>Nossos cafés</S.Subtitle>
         <S.ProductsContainer>
-          {products.map(({ id, name, description, image, price, tags }) => (
-            <S.ProductRootCustom key={id}>
-              <S.ProductWrapper>
-                <Product.Image
-                  src={`products/images/${image}.png`}
-                  alt={`Foto de uma xícara de café do tipo ${name}`}
-                />
-                <Product.Tags>
-                  {tags?.map((tag) => (
-                    <Product.Tag
-                      key={tag.id}
-                      name={tag.title}
-                    />
-                  ))}
-                </Product.Tags>
-                <Product.Name
-                  content={name}
-                  emphasized
-                />
-                <Product.Description content={description} />
-                <Product.Footer>
-                  <Product.Price
-                    value={price}
+          {products.map(
+            ({ id, name, description, image, price, tags, quantity }) => (
+              <S.ProductRootCustom
+                key={id}
+                quantityAvailable={quantity}
+              >
+                <S.ProductWrapper>
+                  <Product.Image
+                    src={`products/images/${image}.png`}
+                    alt={`Foto de uma xícara de café do tipo ${name}`}
+                  />
+                  <Product.Tags>
+                    {tags?.map((tag) => (
+                      <Product.Tag
+                        key={tag.id}
+                        name={tag.title}
+                      />
+                    ))}
+                  </Product.Tags>
+                  <Product.Name
+                    content={name}
                     emphasized
                   />
-                  <Product.QuantitySelector />
-                  <Product.AddToCart />
-                </Product.Footer>
-              </S.ProductWrapper>
-            </S.ProductRootCustom>
-          ))}
+                  <Product.Description content={description} />
+                  <Product.Footer>
+                    <Product.Price
+                      value={price}
+                      emphasized
+                    />
+                    <Product.QuantitySelector />
+                    <Product.AddToCart />
+                  </Product.Footer>
+                </S.ProductWrapper>
+              </S.ProductRootCustom>
+            ),
+          )}
         </S.ProductsContainer>
       </Wrapper>
     </S.HomeContainer>

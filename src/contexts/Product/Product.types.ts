@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 
 interface ProductProviderProps {
   children: ReactNode;
+  quantityAvailable: number;
 }
 
 interface ProductContextType {

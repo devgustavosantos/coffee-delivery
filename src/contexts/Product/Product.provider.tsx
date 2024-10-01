@@ -3,19 +3,26 @@ import { useState } from 'react';
 import { ProductContext } from './';
 import { ProductProviderProps } from './Product.types';
 
-export function ProductProvider({ children }: ProductProviderProps) {
-  const [currentQuantity, setCurrentQuantity] = useState(0);
+export function ProductProvider({
+  children,
+  quantityAvailable,
+}: ProductProviderProps) {
+  const [currentQuantity, setCurrentQuantity] = useState(1);
 
   function handleCurrentQuantity(toAdd?: boolean) {
-    if (toAdd) {
-      setCurrentQuantity((prev) => prev + 1);
+    function onAdd() {
+      if (currentQuantity >= quantityAvailable) return;
 
-      return;
+      setCurrentQuantity((prev) => prev + 1);
     }
 
-    if (currentQuantity <= 0) return;
+    function onRemove() {
+      if (currentQuantity <= 1) return;
 
-    setCurrentQuantity((prev) => prev - 1);
+      setCurrentQuantity((prev) => prev - 1);
+    }
+
+    (toAdd ? onAdd : onRemove)();
   }
 
   return (

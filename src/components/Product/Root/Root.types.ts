@@ -1,7 +1,6 @@
-import { ReactNode } from 'react';
+import { ProductProviderProps } from '@/contexts/Product/Product.types';
 
-interface RootProps {
-  children: ReactNode;
+interface RootProps extends ProductProviderProps {
   className?: string;
 }
 
