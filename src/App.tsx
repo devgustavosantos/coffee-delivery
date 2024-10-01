@@ -1,13 +1,12 @@
 import { ThemeProvider } from 'styled-components';
 
 import { Router } from './Router';
-import { COLORS, Global, Reset } from './styles';
+import { COLORS, Styles } from './styles';
 
 export function App() {
   return (
     <ThemeProvider theme={COLORS}>
-      <Reset />
-      <Global />
+      <Styles />
       <Router />
     </ThemeProvider>
   );

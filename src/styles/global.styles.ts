@@ -16,7 +16,8 @@ export const Global = createGlobalStyle`
   body#body,
   input,
   button,
-  textarea {
+  textarea,
+  .Toastify__toast-body div {
     color: ${({ theme }) => theme.BASE_800};
     outline: none;
     font-size: 16rem;
@@ -83,9 +84,17 @@ export const Global = createGlobalStyle`
     line-height: inherit;
   }
 
+  .Toastify__progress-bar--warning {
+    background: ${({ theme }) => theme.PRIMARY_800};
+  }
+
   @media only screen and (min-width: ${BREAKPOINTS.EXTRA_LARGE}) {
     html#page {
       font-size: max(6.25%, 0.056vw);
+    }
+
+    .Toastify__toast-container {
+      width: 320rem;
     }
   }
 `;
