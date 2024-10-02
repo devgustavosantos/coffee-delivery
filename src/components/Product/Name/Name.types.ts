@@ -1,9 +1,5 @@
-interface NameContainerProps {
+interface NameProps {
   emphasized?: boolean;
 }
 
-interface NameProps extends NameContainerProps {
-  content: string;
-}
-
-export type { NameContainerProps, NameProps };
+export type { NameProps };

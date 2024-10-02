@@ -1,6 +1,9 @@
-import * as S from './Description.styles';
-import { DescriptionProps } from './Description.types';
+import { useProductContext } from '@/contexts';
 
-export function Description({ content }: DescriptionProps) {
-  return <S.DescriptionContainer>{content}</S.DescriptionContainer>;
+import * as S from './Description.styles';
+
+export function Description() {
+  const { infos } = useProductContext();
+
+  return <S.DescriptionContainer>{infos.description}</S.DescriptionContainer>;
 }

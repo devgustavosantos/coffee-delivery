@@ -1,4 +1,5 @@
 import { Product } from '@/components';
+import { ProductProvider } from '@/contexts';
 
 import { cartExample } from './Summary.data';
 import * as S from './Summary.styles';
@@ -7,20 +8,16 @@ export function Summary() {
   return (
     <S.SummaryContainer>
       <S.ProductsContainer>
-        {cartExample.map(({ productId, image, name, value, quantity }) => (
-          <S.ProductRootCustom
-            key={productId}
-            quantityAvailable={quantity}
-          >
-            <Product.Image
-              src={`products/images/${image}.png`}
-              alt=""
-            />
-            <Product.Name content={name} />
-            <Product.Price value={value} />
-            <Product.QuantitySelector />
-            <Product.RemoveFromCart />
-          </S.ProductRootCustom>
+        {cartExample.map(({ id }) => (
+          <ProductProvider id={id}>
+            <S.ProductRootCustom key={id}>
+              <Product.Image />
+              <Product.Name />
+              <Product.Price />
+              <Product.QuantitySelector />
+              <Product.RemoveFromCart />
+            </S.ProductRootCustom>
+          </ProductProvider>
         ))}
       </S.ProductsContainer>
       <S.InfosContainer>

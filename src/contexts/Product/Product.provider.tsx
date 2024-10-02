@@ -1,18 +1,25 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
+import { useStockContext } from '@/contexts/Stock';
+
 import { ProductContext } from './';
 import { ProductProviderProps } from './Product.types';
 
 const MIN_NUMBER_OF_PRODUCTS = 1;
 
-export function ProductProvider({
-  children,
-  quantityAvailable,
-}: ProductProviderProps) {
+export function ProductProvider({ children, id }: ProductProviderProps) {
   const [currentQuantity, setCurrentQuantity] = useState(
     MIN_NUMBER_OF_PRODUCTS,
   );
+
+  const { products } = useStockContext();
+
+  const currentProduct = products.find((product) => product.id === id);
+
+  if (!products.length || !currentProduct) return null;
+
+  const quantityAvailable = currentProduct.quantity;
 
   function handleCurrentQuantity(toAdd?: boolean) {
     function onAdd() {
@@ -41,7 +48,9 @@ export function ProductProvider({
   }
 
   return (
-    <ProductContext.Provider value={{ currentQuantity, handleCurrentQuantity }}>
+    <ProductContext.Provider
+      value={{ infos: currentProduct, currentQuantity, handleCurrentQuantity }}
+    >
       {children}
     </ProductContext.Provider>
   );

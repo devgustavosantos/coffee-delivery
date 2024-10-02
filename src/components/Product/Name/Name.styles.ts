@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { NameContainerProps } from './Name.types';
+import { NameProps } from './Name.types';
 
 const emphasizedNameStyles = /*css*/ `
   margin-top: 16rem;
@@ -11,6 +11,6 @@ const emphasizedNameStyles = /*css*/ `
   text-align: center;
 `;
 
-export const NameContainer = styled.p<NameContainerProps>`
+export const NameContainer = styled.p<NameProps>`
   ${({ emphasized }) => emphasized && emphasizedNameStyles};
 `;

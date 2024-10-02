@@ -1,6 +1,7 @@
 import { homeBanner } from '@/assets';
 import { Badge, Product } from '@/components';
 import { useStockContext } from '@/contexts';
+import { ProductProvider } from '@/contexts';
 import { Wrapper } from '@/styles';
 
 import { benefits } from './Home.data';
@@ -42,17 +43,11 @@ export function Home() {
       <Wrapper>
         <S.Subtitle>Nossos cafés</S.Subtitle>
         <S.ProductsContainer>
-          {products.map(
-            ({ id, name, description, image, price, tags, quantity }) => (
-              <S.ProductRootCustom
-                key={id}
-                quantityAvailable={quantity}
-              >
+          {products.map(({ id, tags }) => (
+            <ProductProvider id={id}>
+              <S.ProductRootCustom key={id}>
                 <S.ProductWrapper>
-                  <Product.Image
-                    src={`products/images/${image}.png`}
-                    alt={`Foto de uma xícara de café do tipo ${name}`}
-                  />
+                  <Product.Image />
                   <Product.Tags>
                     {tags?.map((tag) => (
                       <Product.Tag
@@ -61,23 +56,17 @@ export function Home() {
                       />
                     ))}
                   </Product.Tags>
-                  <Product.Name
-                    content={name}
-                    emphasized
-                  />
-                  <Product.Description content={description} />
+                  <Product.Name emphasized />
+                  <Product.Description />
                   <Product.Footer>
-                    <Product.Price
-                      value={price}
-                      emphasized
-                    />
+                    <Product.Price emphasized />
                     <Product.QuantitySelector />
                     <Product.AddToCart />
                   </Product.Footer>
                 </S.ProductWrapper>
               </S.ProductRootCustom>
-            ),
-          )}
+            </ProductProvider>
+          ))}
         </S.ProductsContainer>
       </Wrapper>
     </S.HomeContainer>
