@@ -1,13 +1,13 @@
 import { homeBanner } from '@/assets';
 import { Badge, Product } from '@/components';
+import { useStockContext } from '@/contexts/Stock';
 import { Wrapper } from '@/styles';
 
 import { benefits } from './Home.data';
-import { useHome } from './Home.hook';
 import * as S from './Home.styles';
 
 export function Home() {
-  const { products } = useHome();
+  const { products } = useStockContext();
 
   return (
     <S.HomeContainer>

@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react';
 import { Product, Tag } from '@/types/product';
 import { customFetch } from '@/utils/customFetch';
 
-import { FetchInfosResponse } from './Home.types';
+import { StockContext } from './';
+import { FetchInfosResponse, StockProviderProps } from './Stock.types';
 
-export function useHome() {
+export function StockProvider({ children }: StockProviderProps) {
   const [products, setProducts] = useState<Product[]>([]);
   const [tags, setTags] = useState<Tag[]>([]);
 
@@ -80,7 +81,9 @@ export function useHome() {
     if (!products.length) fetchProducts();
   }, [products, tags]);
 
-  return {
-    products,
-  };
+  return (
+    <StockContext.Provider value={{ products }}>
+      {children}
+    </StockContext.Provider>
+  );
 }
