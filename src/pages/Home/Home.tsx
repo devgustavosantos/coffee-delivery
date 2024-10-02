@@ -1,6 +1,6 @@
 import { homeBanner } from '@/assets';
 import { Badge, Product } from '@/components';
-import { useStockContext } from '@/contexts/Stock';
+import { useStockContext } from '@/contexts';
 import { Wrapper } from '@/styles';
 
 import { benefits } from './Home.data';

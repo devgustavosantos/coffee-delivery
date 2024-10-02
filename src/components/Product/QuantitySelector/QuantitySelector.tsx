@@ -1,4 +1,4 @@
-import { useProductContext } from '@/contexts/Product';
+import { useProductContext } from '@/contexts';
 
 import * as S from './QuantitySelector.styles';
 

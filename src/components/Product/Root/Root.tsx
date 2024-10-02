@@ -1,4 +1,4 @@
-import { ProductProvider } from '@/contexts/Product';
+import { ProductProvider } from '@/contexts';
 
 import { RootProps } from './Root.types';
 
