@@ -4,7 +4,10 @@ import { toast } from 'react-toastify';
 import { useStockContext } from '@/contexts/Stock';
 
 import { ProductContext } from './';
-import { ProductProviderProps } from './Product.types';
+import {
+  HandleCurrentQuantityOption,
+  ProductProviderProps,
+} from './Product.types';
 
 const MIN_NUMBER_OF_PRODUCTS = 1;
 
@@ -21,30 +24,34 @@ export function ProductProvider({ children, id }: ProductProviderProps) {
 
   const quantityAvailable = currentProduct.quantity;
 
-  function handleCurrentQuantity(toAdd?: boolean) {
-    function onAdd() {
-      if (currentQuantity >= quantityAvailable) {
-        toast.warning('O número máximo de produtos foi alcançado.');
+  function handleCurrentQuantity(currentOption: HandleCurrentQuantityOption) {
+    const optionsAllowed = {
+      increment: function () {
+        if (currentQuantity >= quantityAvailable) {
+          toast.warning('O número máximo de produtos foi alcançado.');
 
-        return;
-      }
+          return;
+        }
 
-      setCurrentQuantity((prev) => prev + 1);
-    }
+        setCurrentQuantity((prev) => prev + 1);
+      },
+      decrement: function () {
+        if (currentQuantity <= MIN_NUMBER_OF_PRODUCTS) {
+          toast.warning(
+            `O número mínimo de produtos deve ser ${MIN_NUMBER_OF_PRODUCTS}.`,
+          );
 
-    function onRemove() {
-      if (currentQuantity <= MIN_NUMBER_OF_PRODUCTS) {
-        toast.warning(
-          `O número mínimo de produtos deve ser ${MIN_NUMBER_OF_PRODUCTS}.`,
-        );
+          return;
+        }
 
-        return;
-      }
+        setCurrentQuantity((prev) => prev - 1);
+      },
+      reset: function () {
+        setCurrentQuantity(MIN_NUMBER_OF_PRODUCTS);
+      },
+    };
 
-      setCurrentQuantity((prev) => prev - 1);
-    }
-
-    (toAdd ? onAdd : onRemove)();
+    optionsAllowed[currentOption]();
   }
 
   return (
