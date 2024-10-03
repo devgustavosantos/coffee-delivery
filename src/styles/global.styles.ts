@@ -84,8 +84,23 @@ export const Global = createGlobalStyle`
     line-height: inherit;
   }
 
-  .Toastify__progress-bar--warning {
-    background: ${({ theme }) => theme.PRIMARY_800};
+  .Toastify {
+    &__progress-bar {
+      &--warning {
+        background: ${({ theme }) => theme.PRIMARY_800};
+      }
+
+      &--success {
+        background: ${({ theme }) => theme.SECONDARY_800};
+      }
+    }
+
+    &__toast--success {
+      .Toastify__toast-icon {
+        /* This filter changes the color of the svg to #8047F8 */
+        filter: brightness(0) saturate(100%) invert(34%) sepia(91%) saturate(4396%) hue-rotate(248deg) brightness(100%) contrast(95%);
+      }
+    }
   }
 
   @media only screen and (min-width: ${BREAKPOINTS.EXTRA_LARGE}) {

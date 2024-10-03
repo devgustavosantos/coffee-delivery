@@ -1,6 +1,6 @@
 import { ThemeProvider } from 'styled-components';
 
-import { StockProvider } from './contexts';
+import { CartProvider, StockProvider } from './contexts';
 import { Router } from './Router';
 import { COLORS, Styles } from './styles';
 
@@ -9,7 +9,9 @@ export function App() {
     <ThemeProvider theme={COLORS}>
       <Styles />
       <StockProvider>
-        <Router />
+        <CartProvider>
+          <Router />
+        </CartProvider>
       </StockProvider>
     </ThemeProvider>
   );
