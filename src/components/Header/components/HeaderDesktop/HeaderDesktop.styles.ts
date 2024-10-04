@@ -55,6 +55,27 @@ const MapPinCustom = styled(MapPin)`
 
 const CartItem = styled(ListItem)`
   background-color: ${({ theme }) => theme.PRIMARY_700};
+  position: relative;
+`;
+
+const ProductsTotalContainer = styled.span`
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  min-width: 20rem;
+  padding: 4rem 5rem;
+  border-radius: 9999rem;
+  background-color: ${({ theme }) => theme.PRIMARY_900};
+  display: grid;
+  place-items: center;
+`;
+
+const ProductsTotalValue = styled.span`
+  color: ${({ theme }) => theme.BASE_100};
+  text-align: center;
+  font-weight: 700;
+  font-size: 12rem;
 `;
 
 const CartLink = styled(Link)`
@@ -77,6 +98,8 @@ export {
   LocationContainer,
   MapPinCustom,
   CartItem,
+  ProductsTotalContainer,
+  ProductsTotalValue,
   CartLink,
   ShoppingCartCustom,
 };
