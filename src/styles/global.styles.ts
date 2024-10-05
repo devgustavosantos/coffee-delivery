@@ -103,6 +103,23 @@ export const Global = createGlobalStyle`
     }
   }
 
+  .swal2-popup.swal2-modal.swal2-icon-warning {
+    font-size: 16rem;
+    width: 512rem;
+  }
+
+  .swal2-icon.swal2-warning.swal2-icon-show {
+    margin: 16rem auto 0;
+  }
+
+  #swal2-title {
+    padding-top: 4rem;
+  }
+
+  .swal2-container.swal2-center.swal2-backdrop-show {
+    padding: 16rem;
+  }
+
   @media only screen and (min-width: ${BREAKPOINTS.EXTRA_LARGE}) {
     html#page {
       font-size: max(6.25%, 0.056vw);
@@ -110,6 +127,12 @@ export const Global = createGlobalStyle`
 
     .Toastify__toast-container {
       width: 320rem;
+    }
+  }
+
+  @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
+    #swal2-html-container {
+      font-size: 14rem;
     }
   }
 `;
