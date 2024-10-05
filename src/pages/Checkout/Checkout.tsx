@@ -1,30 +1,15 @@
+import { useCartContext } from '@/contexts';
+
 import * as S from './Checkout.styles';
-import { Form } from './Form';
-import { Payment } from './Payment';
-import { Summary } from './Summary';
+import { Content } from './Content';
+import { Empty } from './Empty';
 
 export function Checkout() {
+  const { items } = useCartContext();
+
   return (
     <S.CheckoutContainer>
-      <S.CheckoutWrapper>
-        <S.LeftSide>
-          <S.PrimaryTitle>Complete seu pedido</S.PrimaryTitle>
-          <S.SectionContainer>
-            <S.DefaultSection>
-              <Form />
-            </S.DefaultSection>
-            <S.DefaultSection>
-              <Payment />
-            </S.DefaultSection>
-          </S.SectionContainer>
-        </S.LeftSide>
-        <S.RightSide>
-          <S.SecondaryTitle>Cafés Selecionados</S.SecondaryTitle>
-          <S.ProductsSection>
-            <Summary />
-          </S.ProductsSection>
-        </S.RightSide>
-      </S.CheckoutWrapper>
+      {items.length === 0 ? <Empty /> : <Content />}
     </S.CheckoutContainer>
   );
 }

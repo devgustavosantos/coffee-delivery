@@ -1,14 +1,14 @@
 import { Product } from '@/components';
-import { ProductProvider } from '@/contexts';
+import { ProductProvider, useCartContext } from '@/contexts';
 
-import { cartExample } from './Summary.data';
 import * as S from './Summary.styles';
 
 export function Summary() {
+  const { items } = useCartContext();
   return (
     <S.SummaryContainer>
       <S.ProductsContainer>
-        {cartExample.map(({ id }) => (
+        {items.map(({ id }) => (
           <ProductProvider id={id}>
             <S.ProductRootCustom key={id}>
               <Product.Image />

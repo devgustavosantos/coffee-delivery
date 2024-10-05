@@ -21,7 +21,7 @@ const ProductsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  height: 308rem;
+  max-height: 308rem;
   overflow-y: auto;
 
   &:has(> *:nth-child(4)) {
