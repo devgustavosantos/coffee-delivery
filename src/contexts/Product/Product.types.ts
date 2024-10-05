@@ -11,8 +11,6 @@ type HandleCurrentQuantityOption = 'increment' | 'decrement' | 'reset';
 
 interface ProductContextType {
   infos: Product;
-  currentQuantity: number;
-  handleCurrentQuantity: (option: HandleCurrentQuantityOption) => void;
 }
 
 export type {

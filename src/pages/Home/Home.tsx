@@ -1,11 +1,12 @@
 import { homeBanner } from '@/assets';
-import { Badge, Product } from '@/components';
+import { Badge } from '@/components';
 import { useStockContext } from '@/contexts';
 import { ProductProvider } from '@/contexts';
 import { Wrapper } from '@/styles';
 
 import { benefits } from './Home.data';
 import * as S from './Home.styles';
+import { Product } from './Product';
 
 export function Home() {
   const { products } = useStockContext();
@@ -45,26 +46,10 @@ export function Home() {
         <S.ProductsContainer>
           {products.map(({ id, tags }) => (
             <ProductProvider id={id}>
-              <S.ProductRootCustom key={id}>
-                <S.ProductWrapper>
-                  <Product.Image />
-                  <Product.Tags>
-                    {tags?.map((tag) => (
-                      <Product.Tag
-                        key={tag.id}
-                        name={tag.title}
-                      />
-                    ))}
-                  </Product.Tags>
-                  <Product.Name emphasized />
-                  <Product.Description />
-                  <Product.Footer>
-                    <Product.Price emphasized />
-                    <Product.QuantitySelector />
-                    <Product.AddToCart />
-                  </Product.Footer>
-                </S.ProductWrapper>
-              </S.ProductRootCustom>
+              <Product
+                tags={tags}
+                key={id}
+              />
             </ProductProvider>
           ))}
         </S.ProductsContainer>

@@ -1,8 +1,7 @@
 import { toast } from 'react-toastify';
 
+import { MIN_NUMBER_OF_PRODUCTS } from '../constants';
 import { HandleQuantityProps } from './handleQuantity.types';
-
-const MIN_NUMBER_OF_PRODUCTS = 1;
 
 export function handleQuantity() {
   function increment({
@@ -28,13 +27,8 @@ export function handleQuantity() {
     return --currentQuantity;
   }
 
-  function reset() {
-    return MIN_NUMBER_OF_PRODUCTS;
-  }
-
   return {
     increment,
     decrement,
-    reset,
   };
 }
