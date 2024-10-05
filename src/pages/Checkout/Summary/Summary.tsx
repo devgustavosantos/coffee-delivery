@@ -1,10 +1,14 @@
 import { Product } from '@/components';
 import { ProductProvider, useCartContext } from '@/contexts';
 
+import { useSummary } from './Summary.hook';
 import * as S from './Summary.styles';
 
 export function Summary() {
   const { items } = useCartContext();
+
+  const { handleProductRemove } = useSummary();
+
   return (
     <S.SummaryContainer>
       <S.ProductsContainer>
@@ -15,7 +19,7 @@ export function Summary() {
               <Product.Name />
               <Product.Price />
               <Product.QuantitySelector />
-              <Product.RemoveFromCart />
+              <Product.RemoveFromCart onClick={() => handleProductRemove(id)} />
             </S.ProductRootCustom>
           </ProductProvider>
         ))}

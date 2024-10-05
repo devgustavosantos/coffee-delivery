@@ -1,8 +1,10 @@
 import * as S from './RemoveFromCart.styles';
 
-export function RemoveFromCart() {
+export function RemoveFromCart(
+  props: React.ButtonHTMLAttributes<HTMLButtonElement>,
+) {
   return (
-    <S.RemoveFromCartContainer>
+    <S.RemoveFromCartContainer {...props}>
       <S.TrashCustom />
       <S.RemovalText>Remover</S.RemovalText>
     </S.RemoveFromCartContainer>

@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 
-import { CartAction, CartItem } from '@/types/Cart';
+import { CartAction, CartItemComplete } from '@/types/Cart';
 
 type CartContextType = {
-  items: CartItem[];
+  items: CartItemComplete[];
   dispatch: (value: CartAction) => void;
 };
 
