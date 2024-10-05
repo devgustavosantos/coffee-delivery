@@ -1,26 +1,17 @@
-import { Product } from '@/components';
 import { ProductProvider, useCartContext } from '@/contexts';
 
-import { useSummary } from './Summary.hook';
+import { Product } from '../Product';
 import * as S from './Summary.styles';
 
 export function Summary() {
   const { items } = useCartContext();
-
-  const { handleProductRemove } = useSummary();
 
   return (
     <S.SummaryContainer>
       <S.ProductsContainer>
         {items.map(({ id }) => (
           <ProductProvider id={id}>
-            <S.ProductRootCustom key={id}>
-              <Product.Image />
-              <Product.Name />
-              <Product.Price />
-              <Product.QuantitySelector />
-              <Product.RemoveFromCart onClick={() => handleProductRemove(id)} />
-            </S.ProductRootCustom>
+            <Product />
           </ProductProvider>
         ))}
       </S.ProductsContainer>

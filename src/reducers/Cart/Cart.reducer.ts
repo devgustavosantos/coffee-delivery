@@ -1,3 +1,5 @@
+import { produce } from 'immer';
+
 import { CartAction, CartState } from '@/types/Cart';
 
 export function reducer(state: CartState, action: CartAction): CartState {
@@ -16,6 +18,20 @@ export function reducer(state: CartState, action: CartAction): CartState {
       );
 
       return [...productsFiltered];
+    }
+
+    case 'update_product_quantity': {
+      if (!('currentQuantity' in action.payload)) return state;
+
+      const { id, currentQuantity } = action.payload;
+
+      const nextState = produce(state, (draftState) => {
+        const productPosition = state.findIndex((product) => product.id === id);
+
+        draftState[productPosition].currentQuantity = currentQuantity;
+      });
+
+      return nextState;
     }
 
     default:

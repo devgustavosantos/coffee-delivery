@@ -6,7 +6,7 @@ interface CartItemComplete {
 type CartItemSimple = Omit<CartItemComplete, 'currentQuantity'>;
 
 interface CartAction {
-  type: 'add_to_cart' | 'remove_from_cart';
+  type: 'add_to_cart' | 'remove_from_cart' | 'update_product_quantity';
   payload: CartItemComplete | CartItemSimple;
 }
 
