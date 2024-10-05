@@ -14,7 +14,10 @@ export function Payment() {
       </CS.SectionTop>
       <S.MethodsContainer>
         {payments.map(({ type, icon: Icon }) => (
-          <S.PaymentMethod htmlFor={type}>
+          <S.PaymentMethod
+            htmlFor={type}
+            key={type}
+          >
             <S.PaymentInput
               type="radio"
               id={type}

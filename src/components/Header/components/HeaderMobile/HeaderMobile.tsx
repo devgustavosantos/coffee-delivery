@@ -19,6 +19,7 @@ export function HeaderMobile() {
             <Menu
               weight="bold"
               isOpen={isOpen}
+              key={String(Menu)}
             />
           ))}
         </S.MenuButton>

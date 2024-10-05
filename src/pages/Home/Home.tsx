@@ -45,11 +45,11 @@ export function Home() {
         <S.Subtitle>Nossos cafés</S.Subtitle>
         <S.ProductsContainer>
           {products.map(({ id, tags }) => (
-            <ProductProvider id={id}>
-              <Product
-                tags={tags}
-                key={id}
-              />
+            <ProductProvider
+              id={id}
+              key={id}
+            >
+              <Product tags={tags} />
             </ProductProvider>
           ))}
         </S.ProductsContainer>

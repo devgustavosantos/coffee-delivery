@@ -10,7 +10,10 @@ export function Summary() {
     <S.SummaryContainer>
       <S.ProductsContainer>
         {items.map(({ id }) => (
-          <ProductProvider id={id}>
+          <ProductProvider
+            id={id}
+            key={id}
+          >
             <Product />
           </ProductProvider>
         ))}

@@ -16,7 +16,10 @@ export function Form() {
         {inputs.map(({ name, type, isRequired, options }) => (
           <S.InputContainer key={name}>
             {type === 'select' && options?.length ? (
-              <S.Select required>
+              <S.Select
+                required
+                key={name}
+              >
                 <option
                   value=""
                   disabled
