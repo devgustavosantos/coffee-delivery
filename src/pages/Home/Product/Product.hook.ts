@@ -10,7 +10,7 @@ export function useProduct() {
     MIN_NUMBER_OF_PRODUCTS,
   );
 
-  const { dispatch } = useCartContext();
+  const { dispatch, items } = useCartContext();
 
   const { infos } = useProductContext();
 
@@ -28,6 +28,16 @@ export function useProduct() {
   }
 
   function handleAddToCart() {
+    const isProductAlreadyAdd = items.find(
+      (product) => product.id === infos.id,
+    );
+
+    if (isProductAlreadyAdd) {
+      toast.warning('Este produto já está carrinho!');
+
+      return;
+    }
+
     dispatch({
       type: 'add_to_cart',
       payload: { id: infos.id, currentQuantity },
