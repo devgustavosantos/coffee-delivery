@@ -28,6 +28,8 @@ export function useProduct() {
   }
 
   function handleAddToCart() {
+    setCurrentQuantity(MIN_NUMBER_OF_PRODUCTS);
+
     const isProductAlreadyAdd = items.find(
       (product) => product.id === infos.id,
     );
@@ -42,8 +44,6 @@ export function useProduct() {
       type: 'add_to_cart',
       payload: { id: infos.id, currentQuantity },
     });
-
-    setCurrentQuantity(MIN_NUMBER_OF_PRODUCTS);
 
     toast.success('Produto adicionado ao carrinho!');
   }
