@@ -16,6 +16,7 @@ export function Styles() {
         closeOnClick={true}
         pauseOnHover={true}
         draggable={true}
+        limit={3}
       />
     </>
   );
