@@ -5,11 +5,13 @@ import { Content } from './Content';
 import { Empty } from './Empty';
 
 export function Checkout() {
-  const { items } = useCartContext();
+  const {
+    totals: { items },
+  } = useCartContext();
 
   return (
     <S.CheckoutContainer>
-      {items.length === 0 ? <Empty /> : <Content />}
+      {items === 0 ? <Empty /> : <Content />}
     </S.CheckoutContainer>
   );
 }

@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 
-import { PriceProps } from './Price.types';
+import { PriceContainerProps } from './Price.types';
 
 const containerEmphasizedStyles = css`
   font-size: 14rem;
@@ -12,7 +12,7 @@ const containerSimpleStyles = css`
   font-size: 16rem;
 `;
 
-const PriceContainer = styled.div<PriceProps>`
+const PriceContainer = styled.div<PriceContainerProps>`
   ${({ emphasized }) =>
     emphasized ? containerEmphasizedStyles : containerSimpleStyles};
   display: flex;
@@ -31,7 +31,7 @@ const simpleValueContainer = css`
   font-size: inherit;
 `;
 
-const ValueContainer = styled.strong<PriceProps>`
+const ValueContainer = styled.strong<PriceContainerProps>`
   ${({ emphasized }) =>
     emphasized ? emphasizedValueContainer : simpleValueContainer};
 `;

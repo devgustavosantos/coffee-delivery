@@ -8,14 +8,18 @@ export function Product() {
 
   if (!product) return null;
 
-  const { handleProductRemove, handleProductQuantity, productInfosOnCart } =
-    product;
+  const {
+    handleProductRemove,
+    handleProductQuantity,
+    productInfosOnCart,
+    total,
+  } = product;
 
   return (
     <S.ProductRootCustom>
       <ProductBase.Image />
       <ProductBase.Name />
-      <ProductBase.Price />
+      <ProductBase.Price value={total} />
       <ProductBase.QuantitySelector
         currentQuantity={productInfosOnCart.currentQuantity}
         onIncrement={() => handleProductQuantity(true)}

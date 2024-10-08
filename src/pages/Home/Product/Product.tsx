@@ -5,7 +5,7 @@ import * as S from './Product.styles';
 import { ProductProps } from './Product.types';
 
 export function Product({ tags }: ProductProps) {
-  const { currentQuantity, handleProductQuantity, handleAddToCart } =
+  const { currentQuantity, handleProductQuantity, handleAddToCart, price } =
     useProduct();
 
   return (
@@ -23,7 +23,10 @@ export function Product({ tags }: ProductProps) {
         <ProductBase.Name emphasized />
         <ProductBase.Description />
         <ProductBase.Footer>
-          <ProductBase.Price emphasized />
+          <ProductBase.Price
+            emphasized
+            value={price}
+          />
           <ProductBase.QuantitySelector
             currentQuantity={currentQuantity}
             onIncrement={() => handleProductQuantity(true)}

@@ -48,5 +48,10 @@ export function useProduct() {
     toast.success('Produto adicionado ao carrinho!');
   }
 
-  return { currentQuantity, handleProductQuantity, handleAddToCart };
+  return {
+    currentQuantity,
+    handleProductQuantity,
+    handleAddToCart,
+    price: infos.price,
+  };
 }

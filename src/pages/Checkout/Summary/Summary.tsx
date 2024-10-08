@@ -1,10 +1,11 @@
-import { ProductProvider, useCartContext } from '@/contexts';
+import { ProductProvider } from '@/contexts';
 
 import { Product } from '../Product';
+import { useSummary } from './Summary.hook';
 import * as S from './Summary.styles';
 
 export function Summary() {
-  const { items } = useCartContext();
+  const { totalItemsFormatted, items } = useSummary();
 
   return (
     <S.SummaryContainer>
@@ -21,7 +22,7 @@ export function Summary() {
       <S.InfosContainer>
         <S.InfoRow>
           <S.InfoItem>Total de Itens</S.InfoItem>
-          <S.InfoItem>R$ 29,70</S.InfoItem>
+          <S.InfoItem>R$ {totalItemsFormatted}</S.InfoItem>
         </S.InfoRow>
         <S.InfoRow>
           <S.InfoItem>Entrega</S.InfoItem>

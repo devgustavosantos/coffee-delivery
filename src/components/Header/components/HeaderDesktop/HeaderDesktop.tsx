@@ -4,7 +4,9 @@ import { useCartContext } from '@/contexts';
 import * as S from './HeaderDesktop.styles';
 
 export function HeaderDesktop() {
-  const { items } = useCartContext();
+  const {
+    totals: { items },
+  } = useCartContext();
 
   return (
     <S.HeaderDesktopContainer>
@@ -21,9 +23,9 @@ export function HeaderDesktop() {
           </S.LocationContainer>
         </S.LocationItem>
         <S.CartItem>
-          {items.length >= 1 && (
+          {items >= 1 && (
             <S.ProductsTotalContainer>
-              <S.ProductsTotalValue>{items.length}</S.ProductsTotalValue>
+              <S.ProductsTotalValue>{items}</S.ProductsTotalValue>
             </S.ProductsTotalContainer>
           )}
           <S.CartLink to="/checkout">

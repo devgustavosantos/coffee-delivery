@@ -13,6 +13,8 @@ export function useProduct() {
 
   if (!productInfosOnCart) return;
 
+  const { total } = productInfosOnCart;
+
   function handleProductQuantity(isIncrement: boolean) {
     const { increment, decrement } = handleQuantity();
 
@@ -25,7 +27,10 @@ export function useProduct() {
 
     dispatch({
       type: 'update_product_quantity',
-      payload: { id: infos.id, currentQuantity: quantityUpdate },
+      payload: {
+        id: infos.id,
+        currentQuantity: quantityUpdate,
+      },
     });
   }
 
@@ -48,5 +53,10 @@ export function useProduct() {
     });
   }
 
-  return { handleProductRemove, handleProductQuantity, productInfosOnCart };
+  return {
+    handleProductRemove,
+    handleProductQuantity,
+    productInfosOnCart,
+    total,
+  };
 }

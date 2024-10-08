@@ -1,5 +1,11 @@
-interface PriceProps {
-  emphasized?: boolean;
-}
+type UsePriceType = {
+  value: number;
+};
 
-export type { PriceProps };
+type PriceContainerProps = {
+  emphasized?: boolean;
+};
+
+type PriceProps = UsePriceType & PriceContainerProps;
+
+export type { UsePriceType, PriceContainerProps, PriceProps };

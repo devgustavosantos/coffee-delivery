@@ -1,9 +1,19 @@
 import { ReactNode } from 'react';
 
-import { CartAction, CartItemComplete } from '@/types/Cart';
+import { CartAction, CartItemPartial } from '@/types/Cart';
+
+interface CartTotals {
+  price: number;
+  items: number;
+}
+
+interface CartItemComplete extends CartItemPartial {
+  total: number;
+}
 
 type CartContextType = {
   items: CartItemComplete[];
+  totals: CartTotals;
   dispatch: (value: CartAction) => void;
 };
 
@@ -11,4 +21,4 @@ interface CartProviderProps {
   children: ReactNode;
 }
 
-export type { CartContextType, CartProviderProps };
+export type { CartContextType, CartProviderProps, CartItemComplete };

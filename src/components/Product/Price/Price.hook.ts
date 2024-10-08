@@ -1,11 +1,9 @@
-import { useProductContext } from '@/contexts';
+import { getBRLPrice } from '@/utils/getBRLPrice';
 
-export function usePrice() {
-  const { infos } = useProductContext();
+import { UsePriceType } from './Price.types';
 
-  const valueFormatted = new Intl.NumberFormat('pt-BR', {
-    minimumFractionDigits: 2,
-  }).format(infos.price);
+export function usePrice({ value }: UsePriceType) {
+  const valueFormatted = getBRLPrice(value);
 
   return { valueFormatted };
 }

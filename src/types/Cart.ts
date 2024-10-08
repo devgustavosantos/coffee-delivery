@@ -1,15 +1,16 @@
-interface CartItemComplete {
+interface CartItemSimple {
   id: number;
+}
+
+interface CartItemPartial extends CartItemSimple {
   currentQuantity: number;
 }
 
-type CartItemSimple = Omit<CartItemComplete, 'currentQuantity'>;
-
 interface CartAction {
   type: 'add_to_cart' | 'remove_from_cart' | 'update_product_quantity';
-  payload: CartItemComplete | CartItemSimple;
+  payload: CartItemSimple | CartItemPartial;
 }
 
-type CartState = CartItemComplete[];
+type CartState = CartItemPartial[];
 
-export type { CartItemComplete, CartAction, CartState };
+export type { CartItemPartial, CartAction, CartState };
