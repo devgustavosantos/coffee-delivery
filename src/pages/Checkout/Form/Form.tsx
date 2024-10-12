@@ -24,7 +24,7 @@ export function Form() {
         {addressInfos.map(({ name, isOptional }) => (
           <S.InputContainer key={name}>
             <S.Input
-              required={!!isOptional}
+              required={!isOptional}
               placeholder={name}
             />
             {isOptional && <S.Optional>Opcional</S.Optional>}
