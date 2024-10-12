@@ -1,5 +1,5 @@
 import * as CS from '../Checkout.styles';
-import { inputs } from './Form.data';
+import { addressInfos, postalCode, states } from './Form.data';
 import * as S from './Form.styles';
 
 export function Form() {
@@ -13,40 +13,37 @@ export function Form() {
         </CS.SectionDescription>
       </CS.SectionTop>
       <S.Form>
-        {inputs.map(({ name, type, isRequired, options }) => (
+        <S.InputContainer>
+          <S.CustomIMaskInput
+            type={postalCode.type}
+            required={postalCode.required}
+            placeholder={postalCode.placeholder}
+            mask={postalCode.mask}
+          />
+        </S.InputContainer>
+        {addressInfos.map(({ name, isOptional }) => (
           <S.InputContainer key={name}>
-            {type === 'select' && options?.length ? (
-              <S.Select
-                required
-                key={name}
-              >
-                <option
-                  value=""
-                  disabled
-                  selected
-                >
-                  UF
-                </option>
-                {options.map((option) => (
-                  <option
-                    key={option}
-                    value={option}
-                  >
-                    {option}
-                  </option>
-                ))}
-              </S.Select>
-            ) : (
-              <S.Input
-                type={type}
-                required={isRequired}
-                placeholder={name}
-              />
-            )}
-
-            {!isRequired && <S.Optional>Opcional</S.Optional>}
+            <S.Input
+              required={!!isOptional}
+              placeholder={name}
+            />
+            {isOptional && <S.Optional>Opcional</S.Optional>}
           </S.InputContainer>
         ))}
+        <S.InputContainer>
+          <S.Select required>
+            {states.map(({ value, disabled, selected }) => (
+              <option
+                key={value}
+                value={value}
+                {...(disabled && { disabled: disabled })}
+                {...(selected && { selected: selected })}
+              >
+                {value}
+              </option>
+            ))}
+          </S.Select>
+        </S.InputContainer>
       </S.Form>
     </S.FormContainer>
   );
