@@ -1,11 +1,5 @@
-const postalCode = {
-  type: 'text',
-  required: true,
-  placeholder: 'CEP',
-  mask: '00000-000',
-};
-
 const addressInfos = [
+  { name: 'CEP', mask: '00000-000' },
   { name: 'Rua' },
   { name: 'Número' },
   { name: 'Complemento', isOptional: true },
@@ -44,4 +38,4 @@ const states = [
   { value: 'TO' },
 ];
 
-export { postalCode, addressInfos, states };
+export { addressInfos, states };

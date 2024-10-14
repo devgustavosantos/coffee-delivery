@@ -1,5 +1,5 @@
 import * as CS from '../Checkout.styles';
-import { addressInfos, postalCode, states } from './Form.data';
+import { addressInfos, states } from './Form.data';
 import * as S from './Form.styles';
 
 export function Form() {
@@ -13,19 +13,12 @@ export function Form() {
         </CS.SectionDescription>
       </CS.SectionTop>
       <S.Form>
-        <S.InputContainer>
-          <S.CustomIMaskInput
-            type={postalCode.type}
-            required={postalCode.required}
-            placeholder={postalCode.placeholder}
-            mask={postalCode.mask}
-          />
-        </S.InputContainer>
-        {addressInfos.map(({ name, isOptional }) => (
+        {addressInfos.map(({ name, mask, isOptional }) => (
           <S.InputContainer key={name}>
             <S.Input
               required={!isOptional}
               placeholder={name}
+              {...(mask && { mask })}
             />
             {isOptional && <S.Optional>Opcional</S.Optional>}
           </S.InputContainer>
@@ -36,8 +29,8 @@ export function Form() {
               <option
                 key={value}
                 value={value}
-                {...(disabled && { disabled: disabled })}
-                {...(selected && { selected: selected })}
+                {...(disabled && { disabled })}
+                {...(selected && { selected })}
               >
                 {value}
               </option>
