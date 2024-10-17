@@ -13,12 +13,11 @@ export function Form() {
         </CS.SectionDescription>
       </CS.SectionTop>
       <S.Form>
-        {addressInfos.map(({ name, mask, isOptional }) => (
+        {addressInfos.map(({ name, isOptional }) => (
           <S.InputContainer key={name}>
             <S.Input
               required={!isOptional}
               placeholder={name}
-              {...(mask && { mask })}
             />
             {isOptional && <S.Optional>Opcional</S.Optional>}
           </S.InputContainer>

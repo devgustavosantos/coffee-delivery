@@ -1,4 +1,3 @@
-import { IMaskInput } from 'react-imask';
 import { css, styled } from 'styled-components';
 
 import { BREAKPOINTS } from '@/styles';
@@ -52,7 +51,7 @@ const entryStyles = css`
   }
 `;
 
-const Input = styled(IMaskInput)`
+const Input = styled.input`
   border: none;
   background-color: transparent;
   color: ${({ theme }) => theme.BASE_800};

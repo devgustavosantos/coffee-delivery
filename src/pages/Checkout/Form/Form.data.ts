@@ -1,5 +1,5 @@
 const addressInfos = [
-  { name: 'CEP', mask: '00000-000' },
+  { name: 'CEP' },
   { name: 'Rua' },
   { name: 'Número' },
   { name: 'Complemento', isOptional: true },
