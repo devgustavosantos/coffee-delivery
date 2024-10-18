@@ -1,22 +1,11 @@
-import { useForm } from 'react-hook-form';
-
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useFormContext } from '@/contexts';
 
 import * as CS from '../Checkout.styles';
-import { addressInfos, states, AddressSchema } from './Address.data';
+import { addressInfos, states } from './Address.data';
 import * as S from './Address.styles';
-import { AddressType } from './Address.types';
 
 export function Address() {
-  const { register, handleSubmit } = useForm<AddressType>({
-    resolver: zodResolver(AddressSchema),
-  });
-
-  const onSubmit = async (data: AddressType) => {
-    console.log('>>> data', data);
-  };
-
-  console.log('>>> handleSubmit, onSubmit', handleSubmit, onSubmit);
+  const { register } = useFormContext();
 
   return (
     <S.AddressContainer>

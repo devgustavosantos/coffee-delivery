@@ -1,4 +1,4 @@
-import { useCartContext } from '@/contexts';
+import { FormProvider, useCartContext } from '@/contexts';
 
 import * as S from './Checkout.styles';
 import { Content } from './Content';
@@ -11,7 +11,13 @@ export function Checkout() {
 
   return (
     <S.CheckoutContainer>
-      {items === 0 ? <Empty /> : <Content />}
+      {!items ? (
+        <Empty />
+      ) : (
+        <FormProvider>
+          <Content />
+        </FormProvider>
+      )}
     </S.CheckoutContainer>
   );
 }

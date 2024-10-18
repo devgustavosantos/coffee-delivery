@@ -1,12 +1,16 @@
+import { useFormContext } from '@/contexts';
+
 import { Address } from '../Address';
 import { Payment } from '../Payment';
 import { Summary } from '../Summary';
 import * as S from './Content.styles';
 
 export function Content() {
+  const { handleSubmit, onSubmit } = useFormContext();
+
   return (
     <S.ContentContainer>
-      <S.FormWrapper>
+      <S.FormWrapper onSubmit={handleSubmit(onSubmit)}>
         <S.LeftSide>
           <S.PrimaryTitle>Complete seu pedido</S.PrimaryTitle>
           <S.SectionContainer>

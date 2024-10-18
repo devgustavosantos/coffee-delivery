@@ -1,8 +1,4 @@
-import { z } from 'zod';
-
-import { AddressSchema } from './Address.data';
-
-type AddressType = z.infer<typeof AddressSchema>;
+import { AddressType } from '@/types/address';
 
 interface AddressInfo {
   name: keyof AddressType;
