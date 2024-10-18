@@ -1,3 +1,3 @@
-import { CartState } from '@/types/Cart';
+import { CartState } from '@/types/cart';
 
 export const initialState: CartState = [];

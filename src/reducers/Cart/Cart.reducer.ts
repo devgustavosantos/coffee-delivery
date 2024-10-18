@@ -1,7 +1,7 @@
 import { produce } from 'immer';
 import superjson from 'superjson';
 
-import { CartAction, CartState } from '@/types/Cart';
+import { CartAction, CartState } from '@/types/cart';
 import { LOCAL_STORAGE_KEY } from '@/utils/constants';
 
 export function reducer(state: CartState, action: CartAction): CartState {

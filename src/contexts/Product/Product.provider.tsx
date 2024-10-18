@@ -1,4 +1,4 @@
-import { useStockContext } from '@/contexts/Stock';
+import { useStockContext } from '@/contexts';
 
 import { ProductContext } from './';
 import { ProductProviderProps } from './Product.types';

@@ -1,6 +1,6 @@
 import SuperJSON from 'superjson';
 
-import { CartState } from '@/types/Cart';
+import { CartState } from '@/types/cart';
 import { LOCAL_STORAGE_KEY } from '@/utils/constants';
 
 export function init(initialState: CartState): CartState {

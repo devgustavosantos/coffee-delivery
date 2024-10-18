@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { CartAction, CartItemPartial } from '@/types/Cart';
+import { CartAction, CartItemPartial } from '@/types/cart';
 
 interface CartTotals {
   price: number;
