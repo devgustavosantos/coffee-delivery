@@ -8,11 +8,17 @@ export function QuantitySelector({
 }: QuantitySelectorProps) {
   return (
     <S.QuantitySelectorContainer>
-      <S.HandleQuantity onClick={onDecrement}>
+      <S.HandleQuantity
+        onClick={onDecrement}
+        type="button"
+      >
         <S.MinusCustom />
       </S.HandleQuantity>
       <S.CurrentQuantity>{currentQuantity}</S.CurrentQuantity>
-      <S.HandleQuantity onClick={onIncrement}>
+      <S.HandleQuantity
+        onClick={onIncrement}
+        type="button"
+      >
         <S.PlusCustom />
       </S.HandleQuantity>
     </S.QuantitySelectorContainer>

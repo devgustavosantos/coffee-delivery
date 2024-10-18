@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { AddressInfo, State } from './Form.types';
+import { AddressInfo, State } from './Address.types';
 
 const AddressSchema = z.object({
   postalCode: z.string().length(9),

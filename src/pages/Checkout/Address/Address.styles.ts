@@ -5,7 +5,7 @@ import { MapPinLine } from '@phosphor-icons/react';
 
 import { iconSectionStyles } from '../Checkout.styles';
 
-const FormContainer = styled.div`
+const AddressContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -21,7 +21,7 @@ const MapPinLineCustom = styled(MapPinLine)`
   color: ${({ theme }) => theme.PRIMARY_900};
 `;
 
-const Form = styled.form`
+const AddressInputs = styled.div`
   display: grid;
   grid-template-columns: clamp(160rem, 15vw - 10rem, 200rem) 1fr 60rem;
   grid-template-areas:
@@ -122,9 +122,9 @@ const Optional = styled.span`
 `;
 
 export {
-  FormContainer,
+  AddressContainer,
   MapPinLineCustom,
-  Form,
+  AddressInputs,
   InputContainer,
   Input,
   Select,

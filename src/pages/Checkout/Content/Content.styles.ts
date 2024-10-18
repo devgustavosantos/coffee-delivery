@@ -3,15 +3,19 @@ import { css, styled } from 'styled-components';
 import { BREAKPOINTS, Wrapper } from '@/styles';
 
 const ContentContainer = styled(Wrapper)`
+  width: 100%;
+  flex-grow: 1;
+`;
+
+const FormWrapper = styled.form`
   display: flex;
   gap: clamp(20rem, 3vw - 10rem, 32rem);
-  flex-grow: 1;
 
   @media only screen and (max-width: ${BREAKPOINTS.LARGE}) {
     flex-direction: column;
     align-items: stretch;
-    max-width: 660rem;
-    width: 100%;
+    width: min(660rem, 100%);
+    margin-inline: auto;
     gap: 32rem;
   }
 
@@ -78,6 +82,7 @@ const ProductsSection = styled(DefaultSection)`
 
 export {
   ContentContainer,
+  FormWrapper,
   LeftSide,
   RightSide,
   SectionContainer,

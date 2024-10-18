@@ -25,7 +25,10 @@ export function Product() {
         onIncrement={() => handleProductQuantity(true)}
         onDecrement={() => handleProductQuantity(false)}
       />
-      <ProductBase.RemoveFromCart onClick={() => handleProductRemove()} />
+      <ProductBase.RemoveFromCart
+        onClick={() => handleProductRemove()}
+        type="button"
+      />
     </S.ProductRootCustom>
   );
 }

@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { AddressSchema } from './Form.data';
+import { AddressSchema } from './Address.data';
 
 type AddressType = z.infer<typeof AddressSchema>;
 

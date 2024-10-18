@@ -33,7 +33,7 @@ export function Summary() {
           <S.TotalInfoItem>R$ 33,20</S.TotalInfoItem>
         </S.InfoRow>
       </S.InfosContainer>
-      <S.ConfirmOrder>Confirmar Pedido</S.ConfirmOrder>
+      <S.ConfirmOrder type="submit">Confirmar Pedido</S.ConfirmOrder>
     </S.SummaryContainer>
   );
 }

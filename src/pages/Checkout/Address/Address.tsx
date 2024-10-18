@@ -3,11 +3,11 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import * as CS from '../Checkout.styles';
-import { addressInfos, states, AddressSchema } from './Form.data';
-import * as S from './Form.styles';
-import { AddressType } from './Form.types';
+import { addressInfos, states, AddressSchema } from './Address.data';
+import * as S from './Address.styles';
+import { AddressType } from './Address.types';
 
-export function Form() {
+export function Address() {
   const { register, handleSubmit } = useForm<AddressType>({
     resolver: zodResolver(AddressSchema),
   });
@@ -16,8 +16,10 @@ export function Form() {
     console.log('>>> data', data);
   };
 
+  console.log('>>> handleSubmit, onSubmit', handleSubmit, onSubmit);
+
   return (
-    <S.FormContainer>
+    <S.AddressContainer>
       <CS.SectionTop>
         <S.MapPinLineCustom />
         <CS.SectionTitle>Endereço de Entrega</CS.SectionTitle>
@@ -25,7 +27,7 @@ export function Form() {
           Informe o endereço onde deseja receber seu pedido
         </CS.SectionDescription>
       </CS.SectionTop>
-      <S.Form onSubmit={handleSubmit(onSubmit)}>
+      <S.AddressInputs>
         {addressInfos.map(({ name, placeholder, type, isOptional }) => (
           <S.InputContainer key={name}>
             <S.Input
@@ -56,7 +58,7 @@ export function Form() {
             ))}
           </S.Select>
         </S.InputContainer>
-      </S.Form>
-    </S.FormContainer>
+      </S.AddressInputs>
+    </S.AddressContainer>
   );
 }
