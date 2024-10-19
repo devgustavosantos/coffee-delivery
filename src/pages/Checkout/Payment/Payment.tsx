@@ -1,8 +1,12 @@
+import { useFormContext } from '@/contexts';
+
 import * as CS from '../Checkout.styles';
 import { payments } from './Payment.data';
 import * as S from './Payment.styles';
 
 export function Payment() {
+  const { register } = useFormContext();
+
   return (
     <S.PaymentContainer>
       <CS.SectionTop>
@@ -13,19 +17,19 @@ export function Payment() {
         </CS.SectionDescription>
       </CS.SectionTop>
       <S.MethodsContainer>
-        {payments.map(({ type, icon: Icon }) => (
+        {payments.map(({ value, label, icon: Icon }) => (
           <S.PaymentMethod
-            htmlFor={type}
-            key={type}
+            htmlFor={value}
+            key={value}
           >
             <S.PaymentInput
               type="radio"
-              id={type}
-              value={type}
-              name="payment-method"
+              id={value}
+              value={value}
+              {...register('paymentMethod')}
             />
             <Icon />
-            <S.PaymentType>{type}</S.PaymentType>
+            <S.PaymentType>{label}</S.PaymentType>
           </S.PaymentMethod>
         ))}
       </S.MethodsContainer>

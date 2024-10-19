@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
-import { AddressSchema } from '@/utils/schemas';
+import { FormSchema } from '@/utils/schemas';
 
-type AddressType = z.infer<typeof AddressSchema>;
+type FormType = z.infer<typeof FormSchema>;
 
-export type { AddressType };
+export type { FormType };

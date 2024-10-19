@@ -1,7 +1,7 @@
-import { AddressType } from '@/types/address';
+import { FormType } from '@/types/address';
 
 interface AddressInfo {
-  name: keyof AddressType;
+  name: keyof FormType;
   placeholder: string;
   type?: 'number';
   isOptional?: true;
@@ -41,4 +41,4 @@ interface State {
   selected?: true;
 }
 
-export type { AddressInfo, AddressType, State };
+export type { AddressInfo, FormType, State };

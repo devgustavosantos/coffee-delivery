@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 
-import { AddressType } from '@/types/address';
-import { AddressSchema } from '@/utils/schemas';
+import { FormType } from '@/types/address';
+import { FormSchema } from '@/utils/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { FormContext } from '.';
@@ -12,11 +12,11 @@ export function FormProvider({ children }: FormProviderProps) {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<AddressType>({
-    resolver: zodResolver(AddressSchema),
+  } = useForm<FormType>({
+    resolver: zodResolver(FormSchema),
   });
 
-  async function onSubmit(data: AddressType) {
+  async function onSubmit(data: FormType) {
     console.log('>>> data', data);
   }
 
