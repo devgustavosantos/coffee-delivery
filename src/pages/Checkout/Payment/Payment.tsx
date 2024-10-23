@@ -5,10 +5,10 @@ import { payments } from './Payment.data';
 import * as S from './Payment.styles';
 
 export function Payment() {
-  const { register } = useFormContext();
+  const { register, errors } = useFormContext();
 
   return (
-    <S.PaymentContainer>
+    <>
       <CS.SectionTop>
         <S.CurrencyDollarCustom />
         <CS.SectionTitle>Pagamento</CS.SectionTitle>
@@ -21,6 +21,7 @@ export function Payment() {
           <S.PaymentMethod
             htmlFor={value}
             key={value}
+            hasErro={!!errors.paymentMethod}
           >
             <S.PaymentInput
               type="radio"
@@ -33,6 +34,9 @@ export function Payment() {
           </S.PaymentMethod>
         ))}
       </S.MethodsContainer>
-    </S.PaymentContainer>
+      {errors.paymentMethod && (
+        <S.ErrorCustom>Selecione uma forma de pagamento!</S.ErrorCustom>
+      )}
+    </>
   );
 }
