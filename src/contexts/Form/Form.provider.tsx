@@ -23,7 +23,7 @@ export function FormProvider({ children }: FormProviderProps) {
   console.log('>>> errors', errors);
 
   return (
-    <FormContext.Provider value={{ register, handleSubmit, onSubmit }}>
+    <FormContext.Provider value={{ register, handleSubmit, onSubmit, errors }}>
       {children}
     </FormContext.Provider>
   );

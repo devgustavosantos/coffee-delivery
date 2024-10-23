@@ -1,5 +1,9 @@
 import { ReactNode } from 'react';
-import { UseFormHandleSubmit, UseFormRegister } from 'react-hook-form';
+import {
+  FieldErrors,
+  UseFormHandleSubmit,
+  UseFormRegister,
+} from 'react-hook-form';
 
 import { FormType } from '@/types/address';
 
@@ -11,6 +15,7 @@ interface FormContextType {
   register: UseFormRegister<FormType>;
   handleSubmit: UseFormHandleSubmit<FormType, undefined>;
   onSubmit: (data: FormType) => void;
+  errors: FieldErrors<FormType>;
 }
 
 export type { FormProviderProps, FormContextType };
