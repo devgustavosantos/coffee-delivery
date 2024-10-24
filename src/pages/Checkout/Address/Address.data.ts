@@ -1,7 +1,8 @@
 import { AddressInfo, State } from './Address.types';
 
+const postalCode = { placeholder: 'CEP', mask: '00000-000' };
+
 const addressInfos: AddressInfo[] = [
-  { name: 'postalCode', placeholder: 'CEP' },
   { name: 'street', placeholder: 'Rua' },
   { name: 'number', placeholder: 'Número', type: 'number' },
   { name: 'complement', placeholder: 'Complemento', isOptional: true },
@@ -40,4 +41,4 @@ const states: State[] = [
   { value: 'TO' },
 ];
 
-export { addressInfos, states };
+export { postalCode, addressInfos, states };

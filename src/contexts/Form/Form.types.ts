@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import {
+  Control,
   FieldErrors,
   UseFormHandleSubmit,
   UseFormRegister,
@@ -13,6 +14,7 @@ interface FormProviderProps {
 
 interface FormContextType {
   register: UseFormRegister<FormType>;
+  control: Control<FormType>;
   handleSubmit: UseFormHandleSubmit<FormType, undefined>;
   onSubmit: (data: FormType) => void;
   errors: FieldErrors<FormType>;

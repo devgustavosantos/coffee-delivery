@@ -10,6 +10,7 @@ import { FormProviderProps } from './Form.types';
 export function FormProvider({ children }: FormProviderProps) {
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm<FormType>({
@@ -23,7 +24,9 @@ export function FormProvider({ children }: FormProviderProps) {
   console.log('>>> errors', errors);
 
   return (
-    <FormContext.Provider value={{ register, handleSubmit, onSubmit, errors }}>
+    <FormContext.Provider
+      value={{ register, control, handleSubmit, onSubmit, errors }}
+    >
       {children}
     </FormContext.Provider>
   );

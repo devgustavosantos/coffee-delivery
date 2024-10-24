@@ -1,3 +1,4 @@
+import { IMaskInput } from 'react-imask';
 import { css, styled } from 'styled-components';
 
 import { BREAKPOINTS } from '@/styles';
@@ -51,7 +52,7 @@ const entryStyles = css`
   }
 `;
 
-const Input = styled.input`
+const inputStyles = css`
   border: none;
   background-color: transparent;
   color: ${({ theme }) => theme.BASE_800};
@@ -69,6 +70,14 @@ const Input = styled.input`
     appearance: none;
     margin: 0;
   }
+`;
+
+const Input = styled.input`
+  ${inputStyles}
+`;
+
+const CustomIMaskInput = styled(IMaskInput)`
+  ${inputStyles}
 `;
 
 const inputContainerAreasStyles = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
@@ -127,6 +136,7 @@ export {
   AddressInputs,
   InputContainer,
   Input,
+  CustomIMaskInput,
   Select,
   Optional,
 };

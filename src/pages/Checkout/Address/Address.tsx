@@ -1,11 +1,13 @@
+import { Controller } from 'react-hook-form';
+
 import { useFormContext } from '@/contexts';
 
 import * as CS from '../Checkout.styles';
-import { addressInfos, states } from './Address.data';
+import { addressInfos, postalCode, states } from './Address.data';
 import * as S from './Address.styles';
 
 export function Address() {
-  const { register } = useFormContext();
+  const { register, control } = useFormContext();
 
   return (
     <S.AddressContainer>
@@ -17,6 +19,23 @@ export function Address() {
         </CS.SectionDescription>
       </CS.SectionTop>
       <S.AddressInputs>
+        <S.InputContainer>
+          <Controller
+            name="postalCode"
+            control={control}
+            render={({ field }) => (
+              <S.CustomIMaskInput
+                name={field.name}
+                value={field.value}
+                onChange={field.onChange}
+                onBlur={field.onBlur}
+                required
+                mask={postalCode.mask}
+                placeholder={postalCode.placeholder}
+              />
+            )}
+          />
+        </S.InputContainer>
         {addressInfos.map(({ name, placeholder, type, isOptional }) => (
           <S.InputContainer key={name}>
             <S.Input
