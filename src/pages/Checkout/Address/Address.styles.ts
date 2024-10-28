@@ -1,6 +1,7 @@
 import { IMaskInput } from 'react-imask';
 import { css, styled } from 'styled-components';
 
+import { Error } from '@/components';
 import { BREAKPOINTS } from '@/styles';
 import { MapPinLine } from '@phosphor-icons/react';
 
@@ -80,7 +81,49 @@ const CustomIMaskInput = styled(IMaskInput)`
   ${inputStyles}
 `;
 
-const inputContainerAreasStyles = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+const InputStyles = css`
+  background-color: ${({ theme }) => theme.BASE_400};
+  border-radius: 4rem;
+  border: 1rem solid ${({ theme }) => theme.BASE_500};
+`;
+
+const InputContainer = styled.div`
+  ${InputStyles}
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+`;
+
+const Select = styled.select`
+  ${InputStyles}
+  ${entryStyles}
+  grid-area: G;
+  appearance: none;
+  cursor: pointer;
+  flex-grow: 1;
+  color: ${({ theme }) => theme.BASE_700};
+  max-height: 44rem;
+
+  &:valid {
+    color: ${({ theme }) => theme.BASE_800};
+  }
+
+  @media only screen and (max-width: ${BREAKPOINTS.SMALL}) {
+    max-height: 38rem;
+  }
+`;
+
+const Option = styled.option`
+  &:disabled {
+    display: none;
+  }
+`;
+
+const CustomError = styled(Error)`
+  font-size: 12rem;
+`;
+
+const inputWrapperAreasStyles = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
   .map(
     (area, index) => /* css */ `
       &:nth-child(${index + 1}) {
@@ -90,32 +133,21 @@ const inputContainerAreasStyles = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
   )
   .join('');
 
-const InputContainer = styled.div`
-  background-color: ${({ theme }) => theme.BASE_400};
-  border-radius: 4rem;
-  border: 1rem solid ${({ theme }) => theme.BASE_500};
+const InputWrapper = styled.div`
+  ${inputWrapperAreasStyles};
   display: flex;
-  justify-content: stretch;
-  align-items: center;
-  ${inputContainerAreasStyles};
+  flex-direction: column;
+  gap: 16rem;
 
   /* stylelint-disable-next-line */
   &:has(${Input}[placeholder='CEP']) {
     max-width: 200rem;
   }
-`;
 
-const Select = styled.select`
-  border: none;
-  background-color: transparent;
-  appearance: none;
-  cursor: pointer;
-  flex-grow: 1;
-  color: ${({ theme }) => theme.BASE_700};
-  ${entryStyles}
-
-  &:valid {
-    color: ${({ theme }) => theme.BASE_800};
+  /* stylelint-disable-next-line */
+  &:has(${CustomError}) ${InputContainer} {
+    border-color: ${({ theme }) => theme.ERROR_900};
+    background-color: ${({ theme }) => theme.ERROR_700};
   }
 `;
 
@@ -134,9 +166,12 @@ export {
   AddressContainer,
   MapPinLineCustom,
   AddressInputs,
+  InputWrapper,
   InputContainer,
   Input,
   CustomIMaskInput,
   Select,
+  Option,
+  CustomError,
   Optional,
 };
