@@ -1,4 +1,4 @@
-import { ProductProvider } from '@/contexts';
+import { ProductProvider, useFormContext } from '@/contexts';
 
 import { Product } from '../Product';
 import { useSummary } from './Summary.hook';
@@ -6,6 +6,10 @@ import * as S from './Summary.styles';
 
 export function Summary() {
   const { totalItemsFormatted, items } = useSummary();
+
+  const { errors } = useFormContext();
+
+  const shouldSubmitDisable = Object.keys(errors).length > 0;
 
   return (
     <S.SummaryContainer>
@@ -33,7 +37,12 @@ export function Summary() {
           <S.TotalInfoItem>R$ 33,20</S.TotalInfoItem>
         </S.InfoRow>
       </S.InfosContainer>
-      <S.ConfirmOrder type="submit">Confirmar Pedido</S.ConfirmOrder>
+      <S.ConfirmOrder
+        type="submit"
+        disabled={shouldSubmitDisable}
+      >
+        Confirmar Pedido
+      </S.ConfirmOrder>
     </S.SummaryContainer>
   );
 }

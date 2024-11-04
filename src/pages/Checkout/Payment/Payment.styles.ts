@@ -64,6 +64,7 @@ const PaymentType = styled.span`
 const ErrorCustom = styled(Error)`
   display: block;
   margin-top: 8rem;
+  font-size: 12rem;
 `;
 
 export {
