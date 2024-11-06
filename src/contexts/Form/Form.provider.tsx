@@ -17,6 +17,7 @@ export function FormProvider({ children }: FormProviderProps) {
     control,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm<FormType>({
     resolver: zodResolver(FormSchema),
     defaultValues: state.data,
@@ -28,11 +29,18 @@ export function FormProvider({ children }: FormProviderProps) {
     actions.updateAction(data);
   }
 
-  console.log('>>> errors', errors);
+  const paymentMethodWatch = watch('paymentMethod');
 
   return (
     <FormContext.Provider
-      value={{ register, control, handleSubmit, onSubmit, errors }}
+      value={{
+        register,
+        control,
+        handleSubmit,
+        onSubmit,
+        errors,
+        paymentMethodWatch,
+      }}
     >
       {children}
     </FormContext.Provider>

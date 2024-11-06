@@ -18,6 +18,7 @@ interface FormContextType {
   handleSubmit: UseFormHandleSubmit<FormType, undefined>;
   onSubmit: (data: FormType) => void;
   errors: FieldErrors<FormType>;
+  paymentMethodWatch: FormType['paymentMethod'];
 }
 
 export type { FormProviderProps, FormContextType };
