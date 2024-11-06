@@ -5,18 +5,7 @@ import { CartProvider, StockProvider } from './contexts';
 import { Router } from './Router';
 import { COLORS, Styles } from './styles';
 
-createStore({
-  data: {
-    postalCode: '',
-    street: '',
-    number: 0,
-    complement: '',
-    neighborhood: '',
-    city: '',
-    state: '',
-    paymentMethod: 'cash',
-  },
-});
+createStore({});
 
 export function App() {
   return (

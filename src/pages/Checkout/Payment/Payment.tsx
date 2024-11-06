@@ -33,7 +33,7 @@ export function Payment() {
               id={value}
               value={value}
               {...register('paymentMethod')}
-              defaultValue={state.data.paymentMethod}
+              {...(state.data && { defaultValue: state.data.paymentMethod })}
             />
             <Icon />
             <S.PaymentType>{label}</S.PaymentType>

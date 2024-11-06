@@ -37,7 +37,7 @@ export function Address() {
                   required
                   mask={postalCode.mask}
                   placeholder={postalCode.placeholder}
-                  defaultValue={state.data.postalCode}
+                  {...(state.data && { defaultValue: state.data.postalCode })}
                 />
               )}
             />
@@ -50,7 +50,7 @@ export function Address() {
           <S.InputWrapper>
             <S.InputContainer key={name}>
               <S.Input
-                defaultValue={state.data[name]}
+                {...(state.data && { defaultValue: state.data[name] })}
                 required={!isOptional}
                 placeholder={placeholder}
                 {...(type && { type })}
@@ -68,7 +68,7 @@ export function Address() {
         <S.Select
           required
           {...register('state')}
-          defaultValue={state.data.state}
+          {...(state.data && { defaultValue: state.data?.state })}
         >
           {states.map(({ value, disabled, selected }) => (
             <S.Option
