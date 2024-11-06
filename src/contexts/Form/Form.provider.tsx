@@ -1,6 +1,9 @@
 import { useStateMachine } from 'little-state-machine';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
+import { COLORS } from '@/styles';
 import { FormType } from '@/types/form';
 import { FormSchema } from '@/utils/schemas';
 import { updateAction } from '@/utils/updateAction';
@@ -23,10 +26,25 @@ export function FormProvider({ children }: FormProviderProps) {
     defaultValues: state.data,
   });
 
-  async function onSubmit(data: FormType) {
-    console.log('>>> data', data);
+  const navigate = useNavigate();
 
+  async function onSubmit(data: FormType) {
     actions.updateAction(data);
+
+    Swal.fire({
+      title: 'Tem certeza?',
+      text: 'O pedido será finalizado.',
+      icon: 'question',
+      confirmButtonColor: COLORS.SECONDARY_800,
+      confirmButtonText: 'Sim, confirmar!',
+      showCancelButton: true,
+      cancelButtonColor: COLORS.BASE_700,
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (!result.isConfirmed) return;
+
+      navigate('/success');
+    });
   }
 
   const paymentMethodWatch = watch('paymentMethod');

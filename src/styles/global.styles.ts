@@ -103,13 +103,17 @@ export const Global = createGlobalStyle`
     }
   }
 
-  .swal2-popup.swal2-modal.swal2-icon-warning {
-    font-size: 16rem;
-    width: 512rem;
+  .swal2-popup.swal2-modal {
+    &.swal2-icon-warning, &.swal2-icon-question {
+      font-size: 16rem;
+      width: 512rem;
+    }
   }
 
-  .swal2-icon.swal2-warning.swal2-icon-show {
-    margin: 16rem auto 0;
+  .swal2-icon.swal2-icon-show {
+    &.swal2-question,&.swal2-warning {
+      margin: 16rem auto 0;
+    }
   }
 
   #swal2-title {
