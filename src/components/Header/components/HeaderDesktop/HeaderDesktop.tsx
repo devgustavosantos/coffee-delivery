@@ -1,5 +1,8 @@
+import { useStateMachine } from 'little-state-machine';
+
 import { logoLarge } from '@/assets';
 import { useCartContext } from '@/contexts';
+import { updateAction } from '@/utils/updateAction';
 
 import * as S from './HeaderDesktop.styles';
 
@@ -7,6 +10,8 @@ export function HeaderDesktop() {
   const {
     totals: { items },
   } = useCartContext();
+
+  const { state } = useStateMachine({ updateAction });
 
   return (
     <S.HeaderDesktopContainer>
@@ -19,7 +24,8 @@ export function HeaderDesktop() {
       <S.List>
         <S.LocationItem>
           <S.LocationContainer>
-            <S.MapPinCustom weight="fill" /> São Paulo, SP
+            <S.MapPinCustom weight="fill" />
+            {state.data && `${state.data.city}, ${state.data.state}`}
           </S.LocationContainer>
         </S.LocationItem>
         <S.CartItem>
