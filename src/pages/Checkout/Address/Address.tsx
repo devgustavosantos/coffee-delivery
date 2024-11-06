@@ -1,6 +1,8 @@
+import { useStateMachine } from 'little-state-machine';
 import { Controller } from 'react-hook-form';
 
 import { useFormContext } from '@/contexts';
+import { updateAction } from '@/utils/updateAction';
 
 import * as CS from '../Checkout.styles';
 import { addressInfos, postalCode, states } from './Address.data';
@@ -8,6 +10,8 @@ import * as S from './Address.styles';
 
 export function Address() {
   const { register, control, errors } = useFormContext();
+
+  const { state } = useStateMachine({ updateAction });
 
   return (
     <S.AddressContainer>
@@ -33,6 +37,7 @@ export function Address() {
                   required
                   mask={postalCode.mask}
                   placeholder={postalCode.placeholder}
+                  defaultValue={state.data.postalCode}
                 />
               )}
             />
@@ -45,6 +50,7 @@ export function Address() {
           <S.InputWrapper>
             <S.InputContainer key={name}>
               <S.Input
+                defaultValue={state.data[name]}
                 required={!isOptional}
                 placeholder={placeholder}
                 {...(type && { type })}
@@ -62,6 +68,7 @@ export function Address() {
         <S.Select
           required
           {...register('state')}
+          defaultValue={state.data.state}
         >
           {states.map(({ value, disabled, selected }) => (
             <S.Option

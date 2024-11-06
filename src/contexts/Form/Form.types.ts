@@ -6,7 +6,7 @@ import {
   UseFormRegister,
 } from 'react-hook-form';
 
-import { FormType } from '@/types/address';
+import { FormType } from '@/types/form';
 
 interface FormProviderProps {
   children: ReactNode;

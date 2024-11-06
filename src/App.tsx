@@ -1,18 +1,34 @@
+import { StateMachineProvider, createStore } from 'little-state-machine';
 import { ThemeProvider } from 'styled-components';
 
 import { CartProvider, StockProvider } from './contexts';
 import { Router } from './Router';
 import { COLORS, Styles } from './styles';
 
+createStore({
+  data: {
+    postalCode: '',
+    street: '',
+    number: 0,
+    complement: '',
+    neighborhood: '',
+    city: '',
+    state: '',
+    paymentMethod: 'cash',
+  },
+});
+
 export function App() {
   return (
-    <ThemeProvider theme={COLORS}>
-      <Styles />
-      <StockProvider>
-        <CartProvider>
-          <Router />
-        </CartProvider>
-      </StockProvider>
-    </ThemeProvider>
+    <StateMachineProvider>
+      <ThemeProvider theme={COLORS}>
+        <Styles />
+        <StockProvider>
+          <CartProvider>
+            <Router />
+          </CartProvider>
+        </StockProvider>
+      </ThemeProvider>
+    </StateMachineProvider>
   );
 }

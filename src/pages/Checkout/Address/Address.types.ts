@@ -1,4 +1,4 @@
-import { FormType } from '@/types/address';
+import { FormType } from '@/types/form';
 
 interface AddressInfo {
   name: keyof FormType;

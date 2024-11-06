@@ -1,4 +1,7 @@
+import { useStateMachine } from 'little-state-machine';
+
 import { useFormContext } from '@/contexts';
+import { updateAction } from '@/utils/updateAction';
 
 import * as CS from '../Checkout.styles';
 import { payments } from './Payment.data';
@@ -6,6 +9,8 @@ import * as S from './Payment.styles';
 
 export function Payment() {
   const { register, errors } = useFormContext();
+
+  const { state } = useStateMachine({ updateAction });
 
   return (
     <>
@@ -28,6 +33,7 @@ export function Payment() {
               id={value}
               value={value}
               {...register('paymentMethod')}
+              defaultValue={state.data.paymentMethod}
             />
             <Icon />
             <S.PaymentType>{label}</S.PaymentType>
