@@ -7,10 +7,16 @@ interface CartItemPartial extends CartItemSimple {
 }
 
 interface CartAction {
-  type: 'add_to_cart' | 'remove_from_cart' | 'update_product_quantity';
-  payload: CartItemSimple | CartItemPartial;
+  type:
+    | 'add_to_cart'
+    | 'remove_from_cart'
+    | 'update_product_quantity'
+    | 'clean_cart';
+  payload?: CartItemSimple | CartItemPartial;
 }
 
 type CartState = CartItemPartial[];
 
-export type { CartItemPartial, CartAction, CartState };
+type PayloadToAddOrUpdate = CartItemSimple | CartItemPartial | undefined;
+
+export type { CartItemPartial, CartAction, CartState, PayloadToAddOrUpdate };

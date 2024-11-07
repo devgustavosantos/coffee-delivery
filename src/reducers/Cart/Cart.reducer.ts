@@ -1,17 +1,24 @@
 import { produce } from 'immer';
 import superjson from 'superjson';
 
-import { CartAction, CartState } from '@/types/cart';
+import { CartAction, CartState, PayloadToAddOrUpdate } from '@/types/cart';
 import { LOCAL_STORAGE_KEY } from '@/utils/constants';
 
 export function reducer(state: CartState, action: CartAction): CartState {
-  if (!action.payload) return state;
+  function payloadToAddOrUpdate(payload: PayloadToAddOrUpdate) {
+    if (!payload) return false;
+
+    if (!('currentQuantity' in payload)) return false;
+
+    return payload;
+  }
 
   switch (action.type) {
     case 'add_to_cart': {
-      if (!('currentQuantity' in action.payload)) return state;
+      const payload = payloadToAddOrUpdate(action.payload);
+      if (!payload) return state;
 
-      const nextState = [...state, action.payload];
+      const nextState = [...state, payload];
 
       localStorage.setItem(LOCAL_STORAGE_KEY, superjson.stringify(nextState));
 
@@ -29,9 +36,10 @@ export function reducer(state: CartState, action: CartAction): CartState {
     }
 
     case 'update_product_quantity': {
-      if (!('currentQuantity' in action.payload)) return state;
+      const payload = payloadToAddOrUpdate(action.payload);
+      if (!payload) return state;
 
-      const { id, currentQuantity } = action.payload;
+      const { id, currentQuantity } = payload;
 
       const nextState = produce(state, (draftState) => {
         const productPosition = state.findIndex((product) => product.id === id);
@@ -42,6 +50,12 @@ export function reducer(state: CartState, action: CartAction): CartState {
       localStorage.setItem(LOCAL_STORAGE_KEY, superjson.stringify(nextState));
 
       return nextState;
+    }
+
+    case 'clean_cart': {
+      localStorage.removeItem(LOCAL_STORAGE_KEY);
+
+      return [];
     }
 
     default:

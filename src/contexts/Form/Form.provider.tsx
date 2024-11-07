@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
+import { useCartContext } from '@/contexts';
 import { COLORS } from '@/styles';
 import { FormType } from '@/types/form';
 import { FormSchema } from '@/utils/schemas';
@@ -28,6 +29,8 @@ export function FormProvider({ children }: FormProviderProps) {
 
   const navigate = useNavigate();
 
+  const { dispatch } = useCartContext();
+
   async function onSubmit(data: FormType) {
     actions.updateAction(data);
 
@@ -42,6 +45,8 @@ export function FormProvider({ children }: FormProviderProps) {
       cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (!result.isConfirmed) return;
+
+      dispatch({ type: 'clean_cart' });
 
       navigate('/success');
     });
