@@ -5,6 +5,10 @@ import { useCartContext, useProductContext } from '@/contexts';
 import { COLORS } from '@/styles';
 import { handleQuantity } from '@/utils/handleQuantity/';
 
+import { PRODUCT_INFOS } from './Product.infos';
+
+const { TITLE, DESCRIPTION, CONFIRM, CANCEL, SUCCESS } = PRODUCT_INFOS;
+
 export function useProduct() {
   const { infos } = useProductContext();
   const { items, dispatch } = useCartContext();
@@ -36,20 +40,20 @@ export function useProduct() {
 
   function handleProductRemove() {
     Swal.fire({
-      title: 'Tem certeza?',
-      text: 'O produto será removido do carrinho.',
+      title: TITLE,
+      text: DESCRIPTION,
       icon: 'warning',
       confirmButtonColor: COLORS.SECONDARY_800,
-      confirmButtonText: 'Sim, remover!',
+      confirmButtonText: CONFIRM,
       showCancelButton: true,
       cancelButtonColor: COLORS.BASE_700,
-      cancelButtonText: 'Cancelar',
+      cancelButtonText: CANCEL,
     }).then((result) => {
       if (!result.isConfirmed) return;
 
       dispatch({ type: 'remove_from_cart', payload: { id: infos.id } });
 
-      toast.warning('O produto foi removido!');
+      toast.warning(SUCCESS);
     });
   }
 

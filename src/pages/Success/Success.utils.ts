@@ -1,7 +1,11 @@
 import { FormType } from '@/types/form';
 import { CurrencyDollar, MapPin, Timer } from '@phosphor-icons/react';
 
+import { SUCCESS_INFOS } from './Success.infos';
 import { OrderInfos, PaymentMethodLabels } from './Success.types';
+
+const { CASH, CREDIT_CARD, DEBIT_CART, SHIPPING, PREVISION, PAYMENT } =
+  SUCCESS_INFOS;
 
 export function formatOrderInfos({
   street,
@@ -15,26 +19,26 @@ export function formatOrderInfos({
   const address = `${street}, ${number} ${complement ? ', ' + complement : ''} - ${neighborhood} - ${city}, ${state}`;
 
   const paymentsMethodsLabel: PaymentMethodLabels = {
-    cash: 'Dinheiro',
-    creditCard: 'Cartão de Crédito',
-    debitCard: 'Cartão de Débito',
+    cash: CASH,
+    creditCard: CREDIT_CARD,
+    debitCard: DEBIT_CART,
   };
 
   const orderInfosFormatted: OrderInfos[] = [
     {
-      title: 'Entrega em:',
+      title: SHIPPING,
       content: address,
       icon: MapPin,
       color: 'PRIMARY',
     },
     {
-      title: 'Previsão de entrega:',
-      content: '20 min - 30 min',
+      title: PREVISION.TITLE,
+      content: PREVISION.CONTENT,
       icon: Timer,
       color: 'SECONDARY',
     },
     {
-      title: 'Pagamento na entrega com:',
+      title: PAYMENT,
       content: paymentsMethodsLabel[paymentMethod],
       icon: CurrencyDollar,
       color: 'TERTIARY',

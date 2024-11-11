@@ -1,6 +1,7 @@
 import { logoLargeGray } from '@/assets';
 import { logoHorizontalGray } from '@/assets';
 
+import { FOOTER_INFOS } from './Footer.infos';
 import * as S from './Footer.styles';
 
 export function Footer() {
@@ -15,7 +16,7 @@ export function Footer() {
           src={logoHorizontalGray}
           alt=""
         />
-        <S.Copyright>© 2024 - Todos os direitos reservados.</S.Copyright>
+        <S.Copyright>{FOOTER_INFOS}</S.Copyright>
       </S.FooterWrapper>
     </S.FooterContainer>
   );

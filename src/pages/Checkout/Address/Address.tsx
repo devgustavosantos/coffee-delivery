@@ -6,7 +6,10 @@ import { updateAction } from '@/utils/updateAction';
 
 import * as CS from '../Checkout.styles';
 import { addressInfos, postalCode, states } from './Address.data';
+import { ADDRESS_INFOS } from './Address.infos';
 import * as S from './Address.styles';
+
+const { TITLE, DESCRIPTION, OPTIONAL } = ADDRESS_INFOS;
 
 export function Address() {
   const { register, control, errors } = useFormContext();
@@ -17,10 +20,8 @@ export function Address() {
     <S.AddressContainer>
       <CS.SectionTop>
         <S.MapPinLineCustom />
-        <CS.SectionTitle>Endereço de Entrega</CS.SectionTitle>
-        <CS.SectionDescription>
-          Informe o endereço onde deseja receber seu pedido
-        </CS.SectionDescription>
+        <CS.SectionTitle>{TITLE}</CS.SectionTitle>
+        <CS.SectionDescription>{DESCRIPTION}</CS.SectionDescription>
       </CS.SectionTop>
       <S.AddressInputs>
         <S.InputWrapper>
@@ -58,7 +59,7 @@ export function Address() {
                   valueAsNumber: !!type,
                 })}
               />
-              {isOptional && <S.Optional>Opcional</S.Optional>}
+              {isOptional && <S.Optional>{OPTIONAL}</S.Optional>}
             </S.InputContainer>
             {errors[name] && (
               <S.CustomError>{errors[name].message}</S.CustomError>

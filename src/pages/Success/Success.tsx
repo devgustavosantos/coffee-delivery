@@ -4,8 +4,11 @@ import { deliveryMan } from '@/assets';
 import { Badge } from '@/components';
 import { updateAction } from '@/utils/updateAction';
 
+import { SUCCESS_INFOS } from './Success.infos';
 import * as S from './Success.styles';
 import { formatOrderInfos } from './Success.utils';
+
+const { TITLE, DESCRIPTION, IMAGE } = SUCCESS_INFOS;
 
 export function Success() {
   const { state } = useStateMachine({ updateAction });
@@ -18,10 +21,8 @@ export function Success() {
     <S.SuccessContainer>
       <S.SuccessWrapper>
         <div>
-          <S.Title>Uhu! Pedido confirmado</S.Title>
-          <S.Description>
-            Agora é só aguardar que logo o café chegará até você
-          </S.Description>
+          <S.Title>{TITLE}</S.Title>
+          <S.Description>{DESCRIPTION}</S.Description>
           <S.InfosContainer>
             {orderInfosFormatted.map(
               ({ title, content, icon, color, weight }) => (
@@ -40,7 +41,7 @@ export function Success() {
         </div>
         <S.Image
           src={deliveryMan}
-          alt="Imagem de um entregador em cima de uma moto"
+          alt={IMAGE}
         />
       </S.SuccessWrapper>
     </S.SuccessContainer>

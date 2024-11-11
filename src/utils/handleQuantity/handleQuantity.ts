@@ -1,7 +1,10 @@
 import { toast } from 'react-toastify';
 
 import { MIN_NUMBER_OF_PRODUCTS } from '../constants';
+import { HANDLE_QUANTITY_INFOS } from './handleQuantity.infos';
 import { HandleQuantityProps } from './handleQuantity.types';
+
+const { FIRST_WARNING, SECOND_WARNING } = HANDLE_QUANTITY_INFOS;
 
 export function handleQuantity() {
   function increment({
@@ -9,7 +12,7 @@ export function handleQuantity() {
     quantityAvailable,
   }: HandleQuantityProps) {
     if (currentQuantity >= quantityAvailable) {
-      toast.warning('O número máximo foi alcançado.');
+      toast.warning(FIRST_WARNING);
 
       return currentQuantity;
     }
@@ -19,7 +22,7 @@ export function handleQuantity() {
 
   function decrement({ currentQuantity }: HandleQuantityProps) {
     if (currentQuantity <= MIN_NUMBER_OF_PRODUCTS) {
-      toast.warning(`O número mínimo deve ser ${MIN_NUMBER_OF_PRODUCTS}.`);
+      toast.warning(`${SECOND_WARNING} ${MIN_NUMBER_OF_PRODUCTS}.`);
 
       return currentQuantity;
     }

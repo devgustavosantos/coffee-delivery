@@ -2,7 +2,10 @@ import { ProductProvider, useFormContext } from '@/contexts';
 
 import { Product } from '../Product';
 import { useSummary } from './Summary.hook';
+import { SUMMARY_INFOS } from './Summary.infos';
 import * as S from './Summary.styles';
+
+const { ITEMS, SHIPPING, TOTAL, MONEY, CONFIRM } = SUMMARY_INFOS;
 
 export function Summary() {
   const {
@@ -30,23 +33,29 @@ export function Summary() {
       </S.ProductsContainer>
       <S.InfosContainer>
         <S.InfoRow>
-          <S.InfoItem>Total de Itens</S.InfoItem>
-          <S.InfoItem>R$ {totalItemsFormatted}</S.InfoItem>
+          <S.InfoItem>{ITEMS}</S.InfoItem>
+          <S.InfoItem>
+            {MONEY} {totalItemsFormatted}
+          </S.InfoItem>
         </S.InfoRow>
         <S.InfoRow>
-          <S.InfoItem>Entrega</S.InfoItem>
-          <S.InfoItem>R$ {shippingPriceFormatted}</S.InfoItem>
+          <S.InfoItem>{SHIPPING}</S.InfoItem>
+          <S.InfoItem>
+            {MONEY} {shippingPriceFormatted}
+          </S.InfoItem>
         </S.InfoRow>
         <S.InfoRow>
-          <S.TotalInfoItem>Total</S.TotalInfoItem>
-          <S.TotalInfoItem>R$ {totalOrderValueFormatted}</S.TotalInfoItem>
+          <S.TotalInfoItem>{TOTAL}</S.TotalInfoItem>
+          <S.TotalInfoItem>
+            {MONEY} {totalOrderValueFormatted}
+          </S.TotalInfoItem>
         </S.InfoRow>
       </S.InfosContainer>
       <S.ConfirmOrder
         type="submit"
         disabled={shouldSubmitDisable}
       >
-        Confirmar Pedido
+        {CONFIRM}
       </S.ConfirmOrder>
     </S.SummaryContainer>
   );

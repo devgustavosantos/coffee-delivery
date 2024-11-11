@@ -5,7 +5,10 @@ import { updateAction } from '@/utils/updateAction';
 
 import * as CS from '../Checkout.styles';
 import { payments } from './Payment.data';
+import { PAYMENT_INFOS } from './Payment.infos';
 import * as S from './Payment.styles';
+
+const { TITLE, DESCRIPTION, ERROR } = PAYMENT_INFOS;
 
 export function Payment() {
   const { register, errors } = useFormContext();
@@ -16,10 +19,8 @@ export function Payment() {
     <>
       <CS.SectionTop>
         <S.CurrencyDollarCustom />
-        <CS.SectionTitle>Pagamento</CS.SectionTitle>
-        <CS.SectionDescription>
-          O pagamento é feito na entrega. Escolha a forma que deseja pagar
-        </CS.SectionDescription>
+        <CS.SectionTitle>{TITLE}</CS.SectionTitle>
+        <CS.SectionDescription>{DESCRIPTION}</CS.SectionDescription>
       </CS.SectionTop>
       <S.MethodsContainer>
         {payments.map(({ value, label, icon: Icon }) => (
@@ -40,9 +41,7 @@ export function Payment() {
           </S.PaymentMethod>
         ))}
       </S.MethodsContainer>
-      {errors.paymentMethod && (
-        <S.ErrorCustom>Selecione uma forma de pagamento!</S.ErrorCustom>
-      )}
+      {errors.paymentMethod && <S.ErrorCustom>{ERROR}</S.ErrorCustom>}
     </>
   );
 }

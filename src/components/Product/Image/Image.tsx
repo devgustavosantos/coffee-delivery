@@ -1,5 +1,6 @@
 import { useProductContext } from '@/contexts';
 
+import { IMAGE_INFOS } from './Image.infos';
 import * as S from './Image.styles';
 
 export function Image() {
@@ -8,7 +9,7 @@ export function Image() {
   return (
     <S.ImageContainer
       src={`products/images/${infos.image}.png`}
-      alt={`Foto de uma xícara de café do tipo ${infos.name}`}
+      alt={`${IMAGE_INFOS} ${infos.name}`}
     />
   );
 }

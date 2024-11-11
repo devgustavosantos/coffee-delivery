@@ -4,7 +4,10 @@ import { Product, Tag } from '@/types/product';
 import { customFetch } from '@/utils/customFetch';
 
 import { StockContext } from './';
+import { STOCK_INFOS } from './Stock.infos';
 import { FetchInfosResponse, StockProviderProps } from './Stock.types';
+
+const { FIRST_ERROR, SECOND_ERROR } = STOCK_INFOS;
 
 export function StockProvider({ children }: StockProviderProps) {
   const [products, setProducts] = useState<Product[]>([]);
@@ -19,9 +22,7 @@ export function StockProvider({ children }: StockProviderProps) {
 
         return response;
       } catch (error) {
-        throw new Error(
-          `>>> An error occurred while trying to get the ${type}! >>>` + error,
-        );
+        throw new Error(`>>> ${FIRST_ERROR} ${type}! >>>` + error);
       }
     }
 
@@ -53,9 +54,7 @@ export function StockProvider({ children }: StockProviderProps) {
           const tagFound = tags.find((item) => item.id === tag);
 
           if (!tagFound) {
-            throw new Error(
-              `>>> There was a problem formatting the tags of product with id ${product.id}!`,
-            );
+            throw new Error(`>>> ${SECOND_ERROR} ${product.id}!`);
           }
 
           return tagFound;

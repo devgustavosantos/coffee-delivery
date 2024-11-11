@@ -11,7 +11,10 @@ import { updateAction } from '@/utils/updateAction';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { FormContext } from '.';
+import { FORM_INFOS } from './Form.infos';
 import { FormProviderProps } from './Form.types';
+
+const { TITLE, DESCRIPTION, CONFIRM, CANCEL } = FORM_INFOS;
 
 export function FormProvider({ children }: FormProviderProps) {
   const { actions, state } = useStateMachine({ updateAction });
@@ -35,14 +38,14 @@ export function FormProvider({ children }: FormProviderProps) {
     actions.updateAction(data);
 
     Swal.fire({
-      title: 'Tem certeza?',
-      text: 'O pedido será finalizado.',
+      title: TITLE,
+      text: DESCRIPTION,
       icon: 'question',
       confirmButtonColor: COLORS.SECONDARY_800,
-      confirmButtonText: 'Sim, confirmar!',
+      confirmButtonText: CONFIRM,
       showCancelButton: true,
       cancelButtonColor: COLORS.BASE_700,
-      cancelButtonText: 'Cancelar',
+      cancelButtonText: CANCEL,
     }).then((result) => {
       if (!result.isConfirmed) return;
 

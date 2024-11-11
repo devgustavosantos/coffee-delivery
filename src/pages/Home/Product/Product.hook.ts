@@ -5,6 +5,10 @@ import { useCartContext, useProductContext } from '@/contexts';
 import { MIN_NUMBER_OF_PRODUCTS } from '@/utils/constants';
 import { handleQuantity } from '@/utils/handleQuantity';
 
+import { PRODUCT_INFOS } from './Product.infos';
+
+const { SUCCESS, WARNING } = PRODUCT_INFOS;
+
 export function useProduct() {
   const [currentQuantity, setCurrentQuantity] = useState(
     MIN_NUMBER_OF_PRODUCTS,
@@ -35,7 +39,7 @@ export function useProduct() {
     );
 
     if (isProductAlreadyAdd) {
-      toast.warning('Este produto já está carrinho!');
+      toast.warning(WARNING);
 
       return;
     }
@@ -45,7 +49,7 @@ export function useProduct() {
       payload: { id: infos.id, currentQuantity },
     });
 
-    toast.success('Produto adicionado ao carrinho!');
+    toast.success(SUCCESS);
   }
 
   return {

@@ -1,3 +1,4 @@
+import { HEADER_MOBILE_INFOS } from './HeaderMobile.infos';
 import {
   HouseLineCustom,
   ListCustom,
@@ -6,10 +7,20 @@ import {
   XCustom,
 } from './HeaderMobile.styles';
 
+const { HOME, ADDRESS, CART } = HEADER_MOBILE_INFOS;
+
 const links = [
-  { name: 'Início', url: '/', icon: HouseLineCustom },
-  { name: 'Endereço', url: '/checkout', icon: MapPinCustom },
-  { name: 'Carrinho', url: '/checkout', icon: ShoppingCartCustom },
+  { name: HOME, url: '/', icon: HouseLineCustom },
+  {
+    name: ADDRESS,
+    url: '/checkout',
+    icon: MapPinCustom,
+  },
+  {
+    name: CART,
+    url: '/checkout',
+    icon: ShoppingCartCustom,
+  },
 ];
 
 const menus = [XCustom, ListCustom];

@@ -3,7 +3,10 @@ import { useFormContext } from '@/contexts';
 import { Address } from '../Address';
 import { Payment } from '../Payment';
 import { Summary } from '../Summary';
+import { CONTENT_INFOS } from './Content.infos';
 import * as S from './Content.styles';
+
+const { PRIMARY_TITLE, SECONDARY_TITLE } = CONTENT_INFOS;
 
 export function Content() {
   const { handleSubmit, onSubmit } = useFormContext();
@@ -12,7 +15,7 @@ export function Content() {
     <S.ContentContainer>
       <S.FormWrapper onSubmit={handleSubmit(onSubmit)}>
         <S.LeftSide>
-          <S.PrimaryTitle>Complete seu pedido</S.PrimaryTitle>
+          <S.PrimaryTitle>{PRIMARY_TITLE}</S.PrimaryTitle>
           <S.SectionContainer>
             <S.DefaultSection>
               <Address />
@@ -23,7 +26,7 @@ export function Content() {
           </S.SectionContainer>
         </S.LeftSide>
         <S.RightSide>
-          <S.SecondaryTitle>Cafés Selecionados</S.SecondaryTitle>
+          <S.SecondaryTitle>{SECONDARY_TITLE}</S.SecondaryTitle>
           <S.ProductsSection>
             <Summary />
           </S.ProductsSection>

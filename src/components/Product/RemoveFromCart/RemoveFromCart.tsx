@@ -1,3 +1,4 @@
+import { REMOVE_FROM_CART_INFOS } from './RemoveFromCart.infos';
 import * as S from './RemoveFromCart.styles';
 
 export function RemoveFromCart(
@@ -6,7 +7,7 @@ export function RemoveFromCart(
   return (
     <S.RemoveFromCartContainer {...props}>
       <S.TrashCustom />
-      <S.RemovalText>Remover</S.RemovalText>
+      <S.RemovalText>{REMOVE_FROM_CART_INFOS}</S.RemovalText>
     </S.RemoveFromCartContainer>
   );
 }
