@@ -37,7 +37,6 @@ export function Home() {
               </S.Benefit>
             ))}
           </S.BenefitsContainer>
-          1
         </S.BannerWrapper>
       </S.Top>
       <Wrapper>
